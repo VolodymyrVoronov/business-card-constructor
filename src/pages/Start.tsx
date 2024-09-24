@@ -50,7 +50,7 @@ const Start = () => {
 
               <ul className="list-inside list-disc">
                 <li>Rich amount of components</li>
-                <li>Easy to navigate</li>
+                <li>Font and color customization</li>
                 <li>Many formats for export</li>
               </ul>
             </span>

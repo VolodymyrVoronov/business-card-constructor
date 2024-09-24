@@ -1,7 +1,7 @@
-import { StrictMode, Suspense, lazy } from "react";
+import "@fontsource-variable/quicksand";
+import { lazy, StrictMode, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "@fontsource-variable/quicksand";
 
 import { ROUTES } from "./constants/index.ts";
 
@@ -10,6 +10,7 @@ import { ROUTES } from "./constants/index.ts";
 import Loader from "./components/Loader.tsx";
 
 const Start = lazy(() => import("./pages/Start.tsx"));
+const Constructor = lazy(() => import("./pages/Constructor.tsx"));
 
 import "./styles/global.css";
 
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
   {
     element: (
       <Suspense fallback={<Loader />}>
-        <>asd</>
+        <Constructor />
       </Suspense>
     ),
     path: ROUTES.CONSTRUCTOR,
