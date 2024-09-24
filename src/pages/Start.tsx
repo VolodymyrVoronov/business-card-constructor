@@ -38,13 +38,15 @@ const Start = () => {
           </div>
 
           <div className="flex flex-col items-start justify-center gap-y-3">
-            <h1 className="text-3xl font-bold">Business Card Constructor</h1>
+            <h1 className="text-3xl font-bold text-purple-700">
+              Business Card Constructor
+            </h1>
             <p className="text-lg">
               Create your own business card with our easy-to-use interface.
             </p>
 
             <span className="flex flex-col gap-y-1 text-lg">
-              <strong>Features:</strong>
+              <strong className="text-purple-700">Features:</strong>
 
               <ul className="list-inside list-disc">
                 <li>Rich amount of components</li>
