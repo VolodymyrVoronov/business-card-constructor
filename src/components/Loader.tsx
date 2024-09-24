@@ -11,12 +11,15 @@ const Loader = ({ containerClassName, iconClassName }: LoaderProps) => {
   return (
     <div
       className={cn(
-        "flex flex-col h-screen w-full justify-center items-center",
-        containerClassName
+        "flex h-screen w-full flex-col items-center justify-center",
+        containerClassName,
       )}
     >
       <ShellIcon
-        className={cn("animate-spin-reverse size-10", iconClassName)}
+        className={cn(
+          "size-10 animate-spin-reverse text-purple-700",
+          iconClassName,
+        )}
       />
     </div>
   );

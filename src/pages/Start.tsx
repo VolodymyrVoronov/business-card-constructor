@@ -1,21 +1,27 @@
 import { Link } from "react-router-dom";
 
+import { ROUTES } from "@/constants";
+
 import { BackgroundBeamsWithCollision } from "@/components/BackgroundBeamsWithCollision";
 import { Button } from "@/components/ui/button";
-import { ROUTES } from "@/constants";
 
 const Start = () => {
   return (
     <BackgroundBeamsWithCollision>
       <div className="z-10 flex h-screen w-full flex-col items-center justify-center">
-        <div className="grid grid-cols-1 gap-10 md:p-10 lg:grid-cols-[auto_1fr] lg:p-2">
-          <div className="flex min-h-[250px] w-[450px] flex-col gap-y-4 rounded-sm border-2 border-purple-700 p-5">
+        <div className="grid grid-cols-1 gap-10 overflow-auto p-4 lg:grid-cols-[auto_1fr] lg:p-2">
+          <div className="flex h-auto w-full flex-col gap-y-4 rounded-sm border-2 border-purple-700 p-5 sm:w-[400px] lg:w-[450px]">
             <div className="grid grid-cols-[auto_1fr] gap-2">
               <div className="block size-24 rounded-sm bg-slate-200"></div>
               <div className="flex flex-col gap-y-2">
                 <div className="block h-[14px] w-[50%] rounded-sm bg-slate-200"></div>
-                <div className="block h-[14px] w-[60%] rounded-sm bg-slate-200"></div>
-                <div className="block h-[14px] w-[60%] rounded-sm bg-slate-200"></div>
+                <div className="block h-[14px] w-[60%] rounded-sm bg-slate-300"></div>
+                <div className="block h-[14px] w-[45%] rounded-sm bg-slate-400"></div>
+                <div className="flex flex-row gap-x-2">
+                  <div className="block size-[24px] animate-pulse rounded-full bg-purple-400"></div>
+                  <div className="block size-[24px] animate-pulse rounded-full bg-purple-400"></div>
+                  <div className="block size-[24px] animate-pulse rounded-full bg-purple-400"></div>
+                </div>
               </div>
             </div>
 
@@ -36,6 +42,17 @@ const Start = () => {
             <p className="text-lg">
               Create your own business card with our easy-to-use interface.
             </p>
+
+            <span className="flex flex-col gap-y-1 text-lg">
+              <strong>Features:</strong>
+
+              <ul className="list-inside list-disc">
+                <li>Rich amount of components</li>
+                <li>Easy to navigate</li>
+                <li>Many formats for export</li>
+              </ul>
+            </span>
+
             <Button size="lg" asChild>
               <Link to={ROUTES.CONSTRUCTOR}>Start creating</Link>
             </Button>
