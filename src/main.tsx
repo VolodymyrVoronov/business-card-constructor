@@ -1,16 +1,15 @@
 import "@fontsource-variable/quicksand";
+
 import { lazy, StrictMode, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { ROUTES } from "./constants/index.ts";
 
-// import Start from "./pages/Start.tsx";
-
 import Loader from "./components/Loader.tsx";
 
 const Start = lazy(() => import("./pages/Start.tsx"));
-const Constructor = lazy(() => import("./pages/Constructor.tsx"));
+const Constructor = lazy(() => import("./pages/Main.tsx"));
 
 import "./styles/global.css";
 
@@ -29,7 +28,7 @@ const router = createBrowserRouter([
         <Constructor />
       </Suspense>
     ),
-    path: ROUTES.CONSTRUCTOR,
+    path: ROUTES.MAIN,
   },
   {
     path: "*",

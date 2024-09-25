@@ -1,9 +1,9 @@
 export const PATHS = {
   START: "/",
-  CONSTRUCTOR: "/constructor",
+  MAIN: "/constructor",
 } as const;
 
 export const ROUTES = {
   START: PATHS.START,
-  CONSTRUCTOR: PATHS.CONSTRUCTOR,
+  MAIN: PATHS.MAIN,
 } as const;

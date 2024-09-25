@@ -56,7 +56,7 @@ const Start = () => {
             </span>
 
             <Button size="lg" asChild className="shadow-lg">
-              <Link to={ROUTES.CONSTRUCTOR}>Start creating</Link>
+              <Link to={ROUTES.MAIN}>Start creating</Link>
             </Button>
           </div>
         </div>
