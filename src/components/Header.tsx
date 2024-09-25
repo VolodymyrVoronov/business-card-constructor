@@ -4,7 +4,7 @@ import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   return (
-    <header className="flex justify-between border-b-[1px] border-black p-2">
+    <header className="flex justify-between border-b-[1px] border-black p-2 dark:border-slate-500">
       <ResetButton />
       <RedoUndoButtons />
       <ThemeToggle />
