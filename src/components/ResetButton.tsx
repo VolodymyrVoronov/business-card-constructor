@@ -8,7 +8,7 @@ const ResetButton = () => {
   const [ConfirmDialog] = useConfirm({
     dialogTrigger: (
       <Button type="button" size="icon" aria-label="Reset all">
-        <RotateCcw className="isc" />
+        <RotateCcw className="is" />
       </Button>
     ),
     title: "Are you sure you want to reset all?",

@@ -28,7 +28,7 @@ const RedoUndoButtons = ({ className }: RedoUndoButtonsProps): JSX.Element => {
         size="icon"
         aria-label="Undo"
       >
-        <Undo className="isc" />
+        <Undo className="is" />
 
         <span className="sr-only">Undo</span>
       </Button>
@@ -39,7 +39,7 @@ const RedoUndoButtons = ({ className }: RedoUndoButtonsProps): JSX.Element => {
         size="icon"
         aria-label="Redo"
       >
-        <Redo className="isc" />
+        <Redo className="is" />
 
         <span className="sr-only">Redo</span>
       </Button>
