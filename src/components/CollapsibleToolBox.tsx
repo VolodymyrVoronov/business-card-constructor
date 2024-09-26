@@ -9,7 +9,6 @@ import {
 
 interface CollapsibleToolBoxProps {
   title: string;
-
   children: ReactNode;
   className?: string;
 }
