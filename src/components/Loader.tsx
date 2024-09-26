@@ -11,7 +11,7 @@ const Loader = ({ containerClassName, iconClassName }: LoaderProps) => {
   return (
     <div
       className={cn(
-        "flex h-screen w-full flex-col items-center justify-center",
+        "flex h-screen w-full scale-x-[-1] flex-col items-center justify-center",
         containerClassName,
       )}
     >

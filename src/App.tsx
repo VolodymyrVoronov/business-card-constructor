@@ -1,4 +1,18 @@
-import { Stage, Layer, Rect, Text, Image } from "react-konva";
+import {
+  Stage,
+  Layer,
+  Rect,
+  Text,
+  Image,
+  Line,
+  RegularPolygon,
+  Arc,
+  Path,
+  Star,
+  Ellipse,
+  Circle,
+  Transformer,
+} from "react-konva";
 import { useRef, useState } from "react";
 import { Stage as KonvaStage } from "konva/lib/Stage";
 import { saveAs } from "file-saver";
@@ -7,6 +21,69 @@ import { Button } from "./components/ui/button";
 
 import { ColorPicker, useColor } from "react-color-palette";
 import "react-color-palette/css";
+
+// Rectangle Figure
+const RectangleFigure = () => (
+  <Rect
+    x={20}
+    y={20}
+    width={100}
+    height={100}
+    fill="red"
+    shadowBlur={5}
+    draggable
+  />
+);
+
+// Circle Figure
+const CircleFigure = () => (
+  <Circle x={200} y={100} radius={50} fill="blue" shadowBlur={5} draggable />
+);
+
+// Line Figure
+const LineFigure = () => (
+  <Line points={[20, 0, 200, 0]} stroke="green" strokeWidth={5} draggable />
+);
+
+// Ellipse Figure
+const EllipseFigure = () => (
+  <Ellipse
+    x={300}
+    y={200}
+    radiusX={70}
+    radiusY={40}
+    fill="yellow"
+    shadowBlur={5}
+    draggable
+  />
+);
+
+// Polygon (Triangle) Figure
+const PolygonFigure = () => (
+  <RegularPolygon
+    x={400}
+    y={100}
+    sides={3}
+    radius={50}
+    fill="purple"
+    shadowBlur={5}
+    draggable
+  />
+);
+
+// Star Figure
+const StarFigure = () => (
+  <Star
+    x={100}
+    y={300}
+    numPoints={5}
+    innerRadius={30}
+    outerRadius={50}
+    fill="orange"
+    shadowBlur={5}
+    draggable
+  />
+);
 
 const App = () => {
   const bcRef = useRef<KonvaStage | null>(null);
@@ -96,7 +173,14 @@ const App = () => {
         style={{ border: "1px solid black" }}
       >
         <Layer>
-          <Rect x={0} y={0} width={1050} height={600} fill="cyan" />
+          <RectangleFigure />
+          <CircleFigure />
+          <LineFigure />
+          <EllipseFigure />
+          <PolygonFigure />
+          <StarFigure />
+
+          {/* <Rect x={0} y={0} width={1050} height={600} fill="cyan" /> */}
 
           <Text
             text={text}
@@ -144,4 +228,3 @@ const App = () => {
 };
 
 export default App;
-
