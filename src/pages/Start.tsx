@@ -45,7 +45,7 @@ const Start = () => {
               Create your own business card with our easy-to-use interface.
             </p>
 
-            <span className="flex flex-col gap-y-1 text-lg">
+            {/* <span className="flex flex-col gap-y-1 text-lg">
               <strong className="text-purple-700">Features:</strong>
 
               <ul className="list-inside list-disc">
@@ -53,7 +53,7 @@ const Start = () => {
                 <li>Font and color customization</li>
                 <li>Many formats for export</li>
               </ul>
-            </span>
+            </span> */}
 
             <Button size="lg" asChild className="shadow-lg">
               <Link to={ROUTES.MAIN}>Start creating</Link>
