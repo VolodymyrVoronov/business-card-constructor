@@ -1,3 +1,5 @@
+import { BusinessCard } from "@/types";
+
 export const PATHS = {
   START: "/",
   MAIN: "/constructor",
@@ -8,10 +10,11 @@ export const ROUTES = {
   MAIN: PATHS.MAIN,
 } as const;
 
-export const CANVAS_SIZES = [
+export const BUSINESS_CARDS: BusinessCard[] = [
   {
     id: 1,
     inMm: "89mm x 51mm",
+    usedIn: "The United States and Canada",
     dpi: [
       {
         dpi: 96,
@@ -28,6 +31,8 @@ export const CANVAS_SIZES = [
   {
     id: 2,
     inMm: "85mm x 55mm",
+    usedIn:
+      "United Kingdom, Italy, Germany, Belgium, Spain, Portugal, Switzerland, Ireland, France, Austria, Netherlands, Slovenia, and Turkey",
     dpi: [
       {
         dpi: 96,
@@ -44,6 +49,7 @@ export const CANVAS_SIZES = [
   {
     id: 3,
     inMm: "91mm x 55mm",
+    usedIn: "Japan",
     dpi: [
       {
         dpi: 96,
@@ -60,6 +66,7 @@ export const CANVAS_SIZES = [
   {
     id: 4,
     inMm: "90mm x 54mm",
+    usedIn: "China, Singapore, Malaysia, and Hong Kong",
     dpi: [
       {
         dpi: 96,
@@ -76,6 +83,8 @@ export const CANVAS_SIZES = [
   {
     id: 5,
     inMm: "90mm x 55mm",
+    usedIn:
+      "Australia, New Zealand, Norway, Sweden, Denmark, Colombia, Taiwan, Vietnam, and India",
     dpi: [
       {
         dpi: 96,
@@ -92,6 +101,8 @@ export const CANVAS_SIZES = [
   {
     id: 6,
     inMm: "90mm x 50mm",
+    usedIn:
+      "South Korea, Sri Lanka, Kazakhstan, Lithuania, Poland, Romania, Serbia, Montenegro, Slovakia, Ukraine, Uzbekistan, Bulgaria, Latvia, Bosnia, Hungary, Herzegovina, Czech Republic, Croatia, Estonia, Israel, Finland, South Africa, Argentina, Brazil, Costa Rica, and Mexico",
     dpi: [
       {
         dpi: 96,

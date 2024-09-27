@@ -4,11 +4,11 @@ export type Theme = "light" | "dark" | "system";
 
 export type BusinessCard = {
   id: number;
-  title: string;
-  size: string;
-  dpi: number;
-  dimensions: {
+  inMm: string;
+  usedIn: string;
+  dpi: {
+    dpi: number;
     width: number;
     height: number;
-  };
+  }[];
 };
