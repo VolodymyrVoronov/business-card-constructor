@@ -7,7 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-interface CollapsibleToolBoxProps {
+interface ICollapsibleToolBoxProps {
   title: string;
   children: ReactNode;
   className?: string;
@@ -17,7 +17,7 @@ const CollapsibleToolBox = ({
   title,
   children,
   className,
-}: CollapsibleToolBoxProps) => {
+}: ICollapsibleToolBoxProps) => {
   return (
     <Accordion
       type="single"

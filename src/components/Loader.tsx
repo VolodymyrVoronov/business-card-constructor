@@ -2,12 +2,12 @@ import { ShellIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-interface LoaderProps {
+interface ILoaderProps {
   containerClassName?: string;
   iconClassName?: string;
 }
 
-const Loader = ({ containerClassName, iconClassName }: LoaderProps) => {
+const Loader = ({ containerClassName, iconClassName }: ILoaderProps) => {
   return (
     <div
       className={cn(

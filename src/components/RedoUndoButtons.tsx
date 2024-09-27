@@ -5,11 +5,11 @@ import { cn } from "@/lib/utils";
 
 import { Button } from "./ui/button";
 
-interface RedoUndoButtonsProps {
+interface IRedoUndoButtonsProps {
   className?: string;
 }
 
-const RedoUndoButtons = ({ className }: RedoUndoButtonsProps): JSX.Element => {
+const RedoUndoButtons = ({ className }: IRedoUndoButtonsProps): JSX.Element => {
   // const { undo, redo } = useAppStore.temporal.getState();
 
   // const onUndoButtonClick = (): void => {

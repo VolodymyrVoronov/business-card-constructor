@@ -17,12 +17,12 @@ import {
 } from "@/components/ui/popover";
 import { Button } from "./ui/button";
 
-interface BusinessCard {
+interface IBusinessCardProps {
   cardData: BusinessCardData;
   className?: string;
 }
 
-const BusinessCard = ({ cardData, className }: BusinessCard) => {
+const BusinessCard = ({ cardData, className }: IBusinessCardProps) => {
   const { title, size, dpi, dimensions } = cardData;
 
   return (

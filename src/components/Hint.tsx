@@ -9,7 +9,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-interface HintProps {
+interface IHintProps {
   label: string;
   side?: "top" | "bottom" | "left" | "right";
   align?: "start" | "center" | "end";
@@ -23,7 +23,7 @@ export const Hint = ({
   align = "start",
   triggerContainerClassName,
   children,
-}: HintProps) => {
+}: IHintProps) => {
   return (
     <TooltipProvider>
       <Tooltip delayDuration={50}>
