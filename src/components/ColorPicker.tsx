@@ -10,7 +10,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Hint } from "./Hint";
 import { Button } from "./ui/button";
 
 const ColorPicker = () => {
@@ -20,13 +19,11 @@ const ColorPicker = () => {
 
   return (
     <Popover>
-      <Hint label="Color Picker">
-        <PopoverTrigger asChild>
-          <Button size="icon" variant="outline">
-            <Paintbrush className="is" />
-          </Button>
-        </PopoverTrigger>
-      </Hint>
+      <PopoverTrigger asChild>
+        <Button size="icon" variant="outline">
+          <Paintbrush className="is" />
+        </Button>
+      </PopoverTrigger>
 
       <PopoverContent>
         <CP color={selectedColor} onChange={setSelectedColor} height={100} />

@@ -13,6 +13,7 @@ interface HintProps {
   label: string;
   side?: "top" | "bottom" | "left" | "right";
   align?: "start" | "center" | "end";
+  triggerContainerClassName?: string;
   children: ReactNode;
 }
 
@@ -20,12 +21,15 @@ export const Hint = ({
   label,
   side = "top",
   align = "start",
+  triggerContainerClassName,
   children,
 }: HintProps) => {
   return (
     <TooltipProvider>
       <Tooltip delayDuration={50}>
-        <TooltipTrigger asChild>{children}</TooltipTrigger>
+        <TooltipTrigger asChild className={triggerContainerClassName}>
+          {children}
+        </TooltipTrigger>
 
         <TooltipContent
           side={side}
