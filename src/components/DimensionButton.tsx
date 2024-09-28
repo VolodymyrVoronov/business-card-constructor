@@ -1,8 +1,9 @@
 import { Ruler } from "lucide-react";
+import { useShallow } from "zustand/react/shallow";
 
+import { useToast } from "@/hooks/use-toast";
 import { useAppStore } from "@/store/app";
 
-import { Button } from "./ui/button";
 import {
   Dialog,
   DialogClose,
@@ -13,13 +14,38 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { useShallow } from "zustand/react/shallow";
-import { useEffect } from "react";
+import DimensionSelector from "./DimensionSelector";
+import { Button } from "./ui/button";
 
 const DimensionButton = () => {
-  const [dimension, setDimension] = useAppStore(
-    useShallow((state) => [state.dimension, state.setDimension]),
+  const [setDimension] = useAppStore(
+    useShallow((state) => [state.setDimension]),
   );
+
+  const { toast } = useToast();
+
+  const onDimensionSelect = ({
+    width,
+    height,
+  }: {
+    width: number;
+    height: number;
+  }): void => {
+    toast({
+      title: "Dimension selected successfully",
+      description: (
+        <span className="text-lg">
+          Width: <span className="font-semibold">{width}px</span> : Height:{" "}
+          <span className="font-semibold">{height}px</span>
+        </span>
+      ),
+    });
+
+    setDimension({
+      width,
+      height,
+    });
+  };
 
   return (
     <Dialog>
@@ -36,19 +62,19 @@ const DimensionButton = () => {
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="max-w-[768px]">
+      <DialogContent className="max-h-full max-w-[768px] overflow-auto sm:rounded-none md:rounded-lg">
         <DialogHeader>
-          <DialogTitle>Dimensions</DialogTitle>
+          <DialogTitle>Dimension</DialogTitle>
           <DialogDescription>
-            Select the dimensions of your business card.
+            Select the dimension of your business card.
           </DialogDescription>
         </DialogHeader>
 
-        <div>Test</div>
+        <DimensionSelector onSelect={onDimensionSelect} />
 
         <DialogFooter>
           <DialogClose asChild>
-            <Button variant="outline">I want to define my own</Button>
+            <Button variant="outline">Close</Button>
           </DialogClose>
         </DialogFooter>
       </DialogContent>

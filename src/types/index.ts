@@ -6,7 +6,7 @@ export type BusinessCard = {
   id: number;
   inMm: string;
   usedIn: string;
-  dpi: {
+  dpis: {
     dpi: number;
     width: number;
     height: number;

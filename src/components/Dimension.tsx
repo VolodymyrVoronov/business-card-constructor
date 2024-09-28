@@ -30,8 +30,8 @@ const Dimension = () => {
   };
 
   return (
-    <div className="flex flex-col gap-y-2">
-      <span className="text-center text-sm font-semibold">Dimensions</span>
+    <div className="flex flex-col gap-y-2 border-b-[1px] border-black p-3 dark:border-slate-500">
+      <span className="text-center text-sm font-semibold">Dimension</span>
 
       <div className="grid grid-cols-[auto_1fr] items-end gap-2">
         <div className="grid grid-cols-2 gap-2">

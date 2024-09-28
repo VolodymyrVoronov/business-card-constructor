@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ROUTES } from "./constants/index.ts";
 
 import Loader from "./components/Loader.tsx";
+import { Toaster } from "./components/ui/toaster.tsx";
 
 const Start = lazy(() => import("./pages/Start.tsx"));
 const Constructor = lazy(() => import("./pages/Main.tsx"));
@@ -39,5 +40,6 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <RouterProvider router={router} />
+    <Toaster />
   </StrictMode>,
 );

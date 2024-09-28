@@ -15,7 +15,7 @@ export const BUSINESS_CARDS: BusinessCard[] = [
     id: 1,
     inMm: "89mm x 51mm",
     usedIn: "The United States and Canada",
-    dpi: [
+    dpis: [
       {
         dpi: 96,
         width: 336,
@@ -33,7 +33,7 @@ export const BUSINESS_CARDS: BusinessCard[] = [
     inMm: "85mm x 55mm",
     usedIn:
       "United Kingdom, Italy, Germany, Belgium, Spain, Portugal, Switzerland, Ireland, France, Austria, Netherlands, Slovenia, and Turkey",
-    dpi: [
+    dpis: [
       {
         dpi: 96,
         width: 321,
@@ -50,7 +50,7 @@ export const BUSINESS_CARDS: BusinessCard[] = [
     id: 3,
     inMm: "91mm x 55mm",
     usedIn: "Japan",
-    dpi: [
+    dpis: [
       {
         dpi: 96,
         width: 344,
@@ -67,7 +67,7 @@ export const BUSINESS_CARDS: BusinessCard[] = [
     id: 4,
     inMm: "90mm x 54mm",
     usedIn: "China, Singapore, Malaysia, and Hong Kong",
-    dpi: [
+    dpis: [
       {
         dpi: 96,
         width: 340,
@@ -85,7 +85,7 @@ export const BUSINESS_CARDS: BusinessCard[] = [
     inMm: "90mm x 55mm",
     usedIn:
       "Australia, New Zealand, Norway, Sweden, Denmark, Colombia, Taiwan, Vietnam, and India",
-    dpi: [
+    dpis: [
       {
         dpi: 96,
         width: 340,
@@ -103,7 +103,7 @@ export const BUSINESS_CARDS: BusinessCard[] = [
     inMm: "90mm x 50mm",
     usedIn:
       "South Korea, Sri Lanka, Kazakhstan, Lithuania, Poland, Romania, Serbia, Montenegro, Slovakia, Ukraine, Uzbekistan, Bulgaria, Latvia, Bosnia, Hungary, Herzegovina, Czech Republic, Croatia, Estonia, Israel, Finland, South Africa, Argentina, Brazil, Costa Rica, and Mexico",
-    dpi: [
+    dpis: [
       {
         dpi: 96,
         width: 340,
