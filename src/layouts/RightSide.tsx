@@ -6,8 +6,8 @@ const Dimension = lazy(() => import("../components/Dimension"));
 
 const RightSide = () => {
   return (
-    <div className="overflow-auto border-l-[1px] border-black dark:border-slate-500">
-      <Suspense fallback={<Loader containerClassName="h-auto" />}>
+    <div className="h-auto overflow-auto border-l-[1px] border-black dark:border-slate-500">
+      <Suspense fallback={<Loader containerClassName="h-full" />}>
         <Dimension />
       </Suspense>
     </div>
