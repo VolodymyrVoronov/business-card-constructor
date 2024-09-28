@@ -9,6 +9,8 @@ const ResetButton = () => {
     dialogTrigger: (
       <Button type="button" size="icon" aria-label="Reset all">
         <RotateCcw className="is" />
+
+        <span className="sr-only">Reset</span>
       </Button>
     ),
     title: "Are you sure you want to reset all?",

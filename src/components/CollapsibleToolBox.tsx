@@ -9,14 +9,14 @@ import {
 
 interface ICollapsibleToolBoxProps {
   title: string;
-  children: ReactNode;
   className?: string;
+  children: ReactNode;
 }
 
 const CollapsibleToolBox = ({
   title,
-  children,
   className,
+  children,
 }: ICollapsibleToolBoxProps) => {
   return (
     <Accordion
@@ -29,7 +29,7 @@ const CollapsibleToolBox = ({
         value="item-1"
         className="border-black border-b-[1] dark:border-slate-500"
       >
-        <AccordionTrigger className="p-0 px-2 pb-2 text-lg font-semibold">
+        <AccordionTrigger className="p-0 px-2 pb-2 text-sm font-semibold">
           {title}
         </AccordionTrigger>
         <AccordionContent className="px-2">{children}</AccordionContent>

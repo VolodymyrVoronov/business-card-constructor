@@ -6,10 +6,15 @@ import { immer } from "zustand/middleware/immer";
 
 export interface IAppStore {
   selectedColor: IColor;
+  dimension: {
+    width: number;
+    height: number;
+  };
 }
 
 export interface IAppActions {
   setSelectedColor: (color: IColor) => void;
+  setDimension: (dimension: IAppStore["dimension"]) => void;
 }
 
 export const useAppStore = create(
@@ -22,9 +27,21 @@ export const useAppStore = create(
           rgb: { r: 0, g: 0, b: 0, a: 1 },
         },
 
+        dimension: {
+          width: 336,
+          height: 193,
+        },
+
+
         setSelectedColor: (color) => {
           set((state) => {
             state.selectedColor = color;
+          });
+        },
+
+        setDimension: (dimension) => {
+          set((state) => {
+            state.dimension = dimension;
           });
         },
       })),
