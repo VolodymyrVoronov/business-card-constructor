@@ -50,38 +50,36 @@ const DimensionSelectorCard = ({
       </CardHeader>
 
       <CardContent className="flex gap-2">
-        {dpis.map((dpi) => (
-          <div
-            key={dpi.dpi}
-            className="flex w-full flex-col items-center gap-y-1"
-          >
-            <span
-              className={cn(
-                "text-xs",
-                dimension?.width === dpi.width &&
-                  dimension?.height === dpi.height &&
-                  "font-semibold",
-              )}
-            >
-              DPI: {dpi.dpi}
-            </span>
+        {dpis.map((dpi) => {
+          const isCardDimensionSelected =
+            dimension?.width === dpi.width && dimension?.height === dpi.height;
 
-            <Button
-              className="w-full"
-              variant={
-                dimension?.width === dpi.width &&
-                dimension?.height === dpi.height
-                  ? "default"
-                  : "outline"
-              }
-              onClick={() =>
-                onCardSelectClick({ width: dpi.width, height: dpi.height })
-              }
+          return (
+            <div
+              key={dpi.dpi}
+              className="flex w-full flex-col items-center gap-y-1"
             >
-              {`${dpi.width}px x ${dpi.height}px`}
-            </Button>
-          </div>
-        ))}
+              <span
+                className={cn(
+                  "text-xs",
+                  isCardDimensionSelected && "font-semibold",
+                )}
+              >
+                DPI: {dpi.dpi}
+              </span>
+
+              <Button
+                className="w-full"
+                variant={isCardDimensionSelected ? "default" : "outline"}
+                onClick={() =>
+                  onCardSelectClick({ width: dpi.width, height: dpi.height })
+                }
+              >
+                {`${dpi.width}px x ${dpi.height}px`}
+              </Button>
+            </div>
+          );
+        })}
       </CardContent>
     </Card>
   );

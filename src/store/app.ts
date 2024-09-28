@@ -32,7 +32,6 @@ export const useAppStore = create(
           height: 193,
         },
 
-
         setSelectedColor: (color) => {
           set((state) => {
             state.selectedColor = color;
