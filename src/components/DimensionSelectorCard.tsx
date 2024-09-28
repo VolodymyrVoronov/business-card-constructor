@@ -1,5 +1,6 @@
 import { useShallow } from "zustand/react/shallow";
 
+import { cn } from "@/lib/utils";
 import { useAppStore } from "@/store/app";
 import { BusinessCard } from "@/types";
 
@@ -50,20 +51,36 @@ const DimensionSelectorCard = ({
 
       <CardContent className="flex gap-2">
         {dpis.map((dpi) => (
-          <Button
+          <div
             key={dpi.dpi}
-            className={"w-full"}
-            variant={
-              dimension?.width === dpi.width && dimension?.height === dpi.height
-                ? "default"
-                : "outline"
-            }
-            onClick={() =>
-              onCardSelectClick({ width: dpi.width, height: dpi.height })
-            }
+            className="flex w-full flex-col items-center gap-y-1"
           >
-            {`${dpi.width}px x ${dpi.height}px`}
-          </Button>
+            <span
+              className={cn(
+                "text-xs",
+                dimension?.width === dpi.width &&
+                  dimension?.height === dpi.height &&
+                  "font-semibold",
+              )}
+            >
+              DPI: {dpi.dpi}
+            </span>
+
+            <Button
+              className="w-full"
+              variant={
+                dimension?.width === dpi.width &&
+                dimension?.height === dpi.height
+                  ? "default"
+                  : "outline"
+              }
+              onClick={() =>
+                onCardSelectClick({ width: dpi.width, height: dpi.height })
+              }
+            >
+              {`${dpi.width}px x ${dpi.height}px`}
+            </Button>
+          </div>
         ))}
       </CardContent>
     </Card>
