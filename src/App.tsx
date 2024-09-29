@@ -16,6 +16,7 @@ import {
 import { useRef, useState } from "react";
 import { Stage as KonvaStage } from "konva/lib/Stage";
 import { saveAs } from "file-saver";
+import useImage from "use-image";
 
 import { Button } from "./components/ui/button";
 
@@ -90,6 +91,8 @@ const App = () => {
 
   const [text, setText] = useState("Your Text Here");
   const [color, setColor] = useColor("#fffff");
+
+  const [image, status] = useImage("https://konvajs.org/assets/lion.png");
 
   const exportAsPNG = () => {
     if (!bcRef.current) {
@@ -184,6 +187,7 @@ const App = () => {
 
           <Text
             text={text}
+            fontFamily="Quicksand Variable"
             x={50}
             y={50}
             fontSize={24}
@@ -191,7 +195,42 @@ const App = () => {
             draggable
             onClick={(e) => console.log(e)}
           />
-          <Rect
+
+          <Arc
+            x={100}
+            y={100}
+            innerRadius={50}
+            outerRadius={100}
+            angle={360}
+            fill="red"
+            shadowBlur={5}
+            draggable
+            onClick={(e) => console.log(e)}
+          />
+
+          <Image
+            image={image}
+            x={100}
+            y={100}
+            // width={100}
+            // height={100}
+            draggable
+            onClick={(e) => console.log(e)}
+          />
+
+          <Path
+            x={100}
+            y={100}
+            data={
+              "M 10,30A 20,20 0,0,1 50,30A 20,20 0,0,1 90,30Q 90,60 50,90Q 10,60 10,30 z"
+            }
+            fill="red"
+            shadowBlur={5}
+            draggable
+            onClick={(e) => console.log(e)}
+          />
+
+          {/* <Rect
             x={100}
             y={150}
             width={150}
@@ -214,7 +253,7 @@ const App = () => {
             //   };
             // }}
             onClick={(e) => console.log(e)}
-          />
+          /> */}
         </Layer>
       </Stage>
 
