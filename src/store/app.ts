@@ -1,4 +1,5 @@
 // import { temporal } from "zundo";
+import { ConstructorItem } from "@/types";
 import { type IColor } from "react-color-palette";
 import { create } from "zustand";
 import { createJSONStorage, devtools, persist } from "zustand/middleware";
@@ -10,6 +11,7 @@ export interface IAppStore {
     width: number;
     height: number;
   };
+  constructorItems: ConstructorItem[];
 }
 
 export interface IAppActions {
@@ -31,6 +33,8 @@ export const useAppStore = create(
           width: 336,
           height: 193,
         },
+
+        constructorItems: [],
 
         setSelectedColor: (color) => {
           set((state) => {

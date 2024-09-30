@@ -23,44 +23,74 @@ export type BusinessCard = {
   }[];
 };
 
-export interface ConstructorItem {
-  id: number;
-  x: number;
-  y: number;
+export interface ConstructorItemBase {
+  itemId: number;
+  itemX: number;
+  itemY: number;
 }
 
-export interface ConstructorItemText extends TextConfig {
+export type ConstructorItemType =
+  | "text"
+  | "image"
+  | "circle"
+  | "rect"
+  | "ellipse"
+  | "regular-polygon"
+  | "star"
+  | "arc"
+  | "svg-path";
+
+export interface ConstructorItemText extends ConstructorItemBase, TextConfig {
   type: "text";
 }
 
-export interface ConstructorItemImage extends ImageConfig {
+export interface ConstructorItemImage extends ConstructorItemBase, ImageConfig {
   type: "image";
 }
 
-export interface ConstructorItemCircle extends CircleConfig {
+export interface ConstructorItemCircle
+  extends ConstructorItemBase,
+    CircleConfig {
   type: "circle";
 }
 
-export interface ConstructorItemReact extends RectConfig {
+export interface ConstructorItemReact extends ConstructorItemBase, RectConfig {
   type: "rect";
 }
 
-export interface ConstructorItemEllipse extends EllipseConfig {
+export interface ConstructorItemEllipse
+  extends ConstructorItemBase,
+    EllipseConfig {
   type: "ellipse";
 }
 
-export interface ConstructorItemRegularPolygon extends RegularPolygonConfig {
+export interface ConstructorItemRegularPolygon
+  extends ConstructorItemBase,
+    RegularPolygonConfig {
   type: "regular-polygon";
 }
 
-export interface ConstructorItemStar extends StarConfig {
+export interface ConstructorItemStar extends ConstructorItemBase, StarConfig {
   type: "star";
 }
 
-export interface ConstructorItemArc extends ArcConfig {
+export interface ConstructorItemArc extends ConstructorItemBase, ArcConfig {
   type: "arc";
 }
 
-export interface ConstructorItemSVGPath extends PathConfig {
+export interface ConstructorItemSVGPath
+  extends ConstructorItemBase,
+    PathConfig {
   type: "svg-path";
 }
+
+export type ConstructorItem =
+  | ConstructorItemText
+  | ConstructorItemImage
+  | ConstructorItemCircle
+  | ConstructorItemReact
+  | ConstructorItemEllipse
+  | ConstructorItemRegularPolygon
+  | ConstructorItemStar
+  | ConstructorItemArc
+  | ConstructorItemSVGPath;
