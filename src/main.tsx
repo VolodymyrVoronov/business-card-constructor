@@ -13,6 +13,7 @@ const Start = lazy(() => import("./pages/Start.tsx"));
 const Constructor = lazy(() => import("./pages/Main.tsx"));
 
 import "./styles/global.css";
+import App from "./App.tsx";
 
 const router = createBrowserRouter([
   {
