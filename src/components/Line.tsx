@@ -1,4 +1,4 @@
-import { Square } from "lucide-react";
+import { Minus } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { ConstructorItemType } from "@/types";
@@ -6,31 +6,31 @@ import { ConstructorItemType } from "@/types";
 import { Button } from "./ui/button";
 import { Hint } from "./Hint";
 
-interface IRectangleProps {
+interface ILineProps {
   className?: string;
   onClick: (type: ConstructorItemType) => void;
 }
 
-const Rectangle = ({ className, onClick }: IRectangleProps) => {
-  const onRectangleButtonClick = (): void => {
-    onClick("rect");
+const Line = ({ className, onClick }: ILineProps) => {
+  const onLineButtonClick = (): void => {
+    onClick("line");
   };
 
   return (
-    <Hint label="Rectangle">
+    <Hint label="Line">
       <Button
         className={cn(
           "bg-transparent transition hover:scale-110 hover:bg-transparent",
           className,
         )}
-        onClick={onRectangleButtonClick}
+        onClick={onLineButtonClick}
         variant="ghost"
         size="icon"
       >
-        <Square className="size-10" />
+        <Minus className="size-10" />
       </Button>
     </Hint>
   );
 };
 
-export default Rectangle;
+export default Line;

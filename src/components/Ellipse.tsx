@@ -13,11 +13,11 @@ interface IEllipseProps {
 
 const Ellipse = ({ className, onClick }: IEllipseProps) => {
   const onEllipseButtonClick = (): void => {
-    onClick("rect");
+    onClick("ellipse");
   };
 
   return (
-    <Hint label="Add ellipse to the document">
+    <Hint label="Ellipse">
       <Button
         className={cn(
           "bg-transparent transition hover:scale-110 hover:bg-transparent",

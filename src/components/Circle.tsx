@@ -13,11 +13,11 @@ interface ICircleProps {
 
 const Circle = ({ className, onClick }: ICircleProps) => {
   const onCircleButtonClick = (): void => {
-    onClick("rect");
+    onClick("circle");
   };
 
   return (
-    <Hint label="Add circle to the document">
+    <Hint label="Circle">
       <Button
         className={cn(
           "bg-transparent transition hover:scale-110 hover:bg-transparent",

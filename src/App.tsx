@@ -33,6 +33,15 @@ const RectangleFigure = () => (
     fill="red"
     shadowBlur={5}
     draggable
+    fillPriority="linear-gradient"
+    fillLinearGradientStartPoint={{ x: 0, y: 0 }}
+    fillLinearGradientEndPoint={{ x: 100, y: 100 }}
+    fillLinearGradientColorStops={[
+      0,
+      "rgba(165, 142, 251, 1)",
+      1,
+      "rgb(233, 191, 248)",
+    ]}
   />
 );
 
@@ -202,7 +211,7 @@ const App = () => {
             innerRadius={50}
             outerRadius={100}
             angle={360}
-            fill="red"
+            fill="aqua"
             shadowBlur={5}
             draggable
             onClick={(e) => console.log(e)}

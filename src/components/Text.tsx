@@ -17,7 +17,7 @@ const Text = ({ className, onClick }: ITextProps) => {
   };
 
   return (
-    <Hint label="Add text to the document">
+    <Hint label="Text">
       <Button
         className={cn(
           "bg-transparent transition hover:scale-110 hover:bg-transparent",

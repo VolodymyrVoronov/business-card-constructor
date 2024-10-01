@@ -9,6 +9,7 @@ import { RegularPolygonConfig } from "konva/lib/shapes/RegularPolygon";
 import { StarConfig } from "konva/lib/shapes/Star";
 import { ArcConfig } from "konva/lib/shapes/Arc";
 import { PathConfig } from "konva/lib/shapes/Path";
+import { LineConfig } from "konva/lib/shapes/Line";
 
 export type Theme = "light" | "dark" | "system";
 
@@ -38,7 +39,8 @@ export type ConstructorItemType =
   | "regular-polygon"
   | "star"
   | "arc"
-  | "svg-path";
+  | "svg-path"
+  | "line";
 
 export interface ConstructorItemText extends ConstructorItemBase, TextConfig {
   type: "text";
@@ -84,6 +86,10 @@ export interface ConstructorItemSVGPath
   type: "svg-path";
 }
 
+export interface ConstructorItemLine extends ConstructorItemBase, LineConfig {
+  type: "line";
+}
+
 export type ConstructorItem =
   | ConstructorItemText
   | ConstructorItemImage
@@ -93,4 +99,5 @@ export type ConstructorItem =
   | ConstructorItemRegularPolygon
   | ConstructorItemStar
   | ConstructorItemArc
-  | ConstructorItemSVGPath;
+  | ConstructorItemSVGPath
+  | ConstructorItemLine;

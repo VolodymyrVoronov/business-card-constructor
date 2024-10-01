@@ -1,12 +1,15 @@
-import CollapsibleToolBox from "@/components/CollapsibleToolBox";
-import Elements from "@/components/Elements";
+import { lazy, Suspense } from "react";
+
+import Loader from "@/components/Loader";
+
+const Elements = lazy(() => import("../components/Elements"));
 
 const LeftSide = () => {
   return (
     <div className="border-r-[1px] border-black dark:border-slate-500">
-      <CollapsibleToolBox title="Elements">
+      <Suspense fallback={<Loader containerClassName="h-full" />}>
         <Elements />
-      </CollapsibleToolBox>
+      </Suspense>
     </div>
   );
 };

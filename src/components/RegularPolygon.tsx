@@ -13,11 +13,11 @@ interface IRegularPolygonProps {
 
 const RegularPolygon = ({ className, onClick }: IRegularPolygonProps) => {
   const onRegularPolygonButtonClick = (): void => {
-    onClick("rect");
+    onClick("regular-polygon");
   };
 
   return (
-    <Hint label="Add polygon to the document">
+    <Hint label="Polygon">
       <Button
         className={cn(
           "bg-transparent transition hover:scale-110 hover:bg-transparent",

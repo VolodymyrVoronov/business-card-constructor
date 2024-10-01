@@ -13,11 +13,11 @@ interface IStarProps {
 
 const Star = ({ className, onClick }: IStarProps) => {
   const onStarButtonClick = (): void => {
-    onClick("rect");
+    onClick("star");
   };
 
   return (
-    <Hint label="Add star to the document">
+    <Hint label="Star">
       <Button
         className={cn(
           "bg-transparent transition hover:scale-110 hover:bg-transparent",

@@ -13,11 +13,11 @@ interface IImageProps {
 
 const Image = ({ className, onClick }: IImageProps) => {
   const onImageButtonClick = (): void => {
-    onClick("rect");
+    onClick("image");
   };
 
   return (
-    <Hint label="Add image to the document">
+    <Hint label="Image">
       <Button
         className={cn(
           "bg-transparent transition hover:scale-110 hover:bg-transparent",

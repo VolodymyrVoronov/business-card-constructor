@@ -1,4 +1,4 @@
-import { Square } from "lucide-react";
+import { Disc } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { ConstructorItemType } from "@/types";
@@ -6,31 +6,31 @@ import { ConstructorItemType } from "@/types";
 import { Button } from "./ui/button";
 import { Hint } from "./Hint";
 
-interface IRectangleProps {
+interface IArcProps {
   className?: string;
   onClick: (type: ConstructorItemType) => void;
 }
 
-const Rectangle = ({ className, onClick }: IRectangleProps) => {
-  const onRectangleButtonClick = (): void => {
-    onClick("rect");
+const Arc = ({ className, onClick }: IArcProps) => {
+  const onArcButtonClick = (): void => {
+    onClick("arc");
   };
 
   return (
-    <Hint label="Rectangle">
+    <Hint label="Arc">
       <Button
         className={cn(
           "bg-transparent transition hover:scale-110 hover:bg-transparent",
           className,
         )}
-        onClick={onRectangleButtonClick}
+        onClick={onArcButtonClick}
         variant="ghost"
         size="icon"
       >
-        <Square className="size-10" />
+        <Disc className="size-10" />
       </Button>
     </Hint>
   );
 };
 
-export default Rectangle;
+export default Arc;
