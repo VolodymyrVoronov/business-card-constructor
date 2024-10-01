@@ -25,7 +25,7 @@ export type BusinessCard = {
 };
 
 export interface ConstructorItemBase {
-  itemId: number;
+  itemId: string;
   itemX: number;
   itemY: number;
 }

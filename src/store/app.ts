@@ -1,9 +1,11 @@
 // import { temporal } from "zundo";
+import generateRandomUUID from "@/helpers/generateRandomUUID";
 import { ConstructorItem } from "@/types";
 import { type IColor } from "react-color-palette";
 import { create } from "zustand";
 import { createJSONStorage, devtools, persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
+import { produce } from "immer";
 
 export interface IAppStore {
   selectedColor: IColor;
@@ -17,6 +19,7 @@ export interface IAppStore {
 export interface IAppActions {
   setSelectedColor: (color: IColor) => void;
   setDimension: (dimension: IAppStore["dimension"]) => void;
+  addConstructorItem: (item: ConstructorItem) => void;
 }
 
 export const useAppStore = create(
@@ -46,6 +49,19 @@ export const useAppStore = create(
           set((state) => {
             state.dimension = dimension;
           });
+        },
+
+        addConstructorItem: (item) => {
+          const newItem = {
+            ...item,
+            itemId: generateRandomUUID(),
+          };
+
+          set(
+            produce((state) => {
+              state.constructorItems.push(newItem);
+            }),
+          );
         },
       })),
       // { limit: 50 },
