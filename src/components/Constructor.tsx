@@ -5,14 +5,12 @@ import { useShallow } from "zustand/react/shallow";
 
 import { useAppStore } from "@/store/app";
 
+import ConstructorItems from "./ConstructorItems";
+
 const Constructor = () => {
-  const [dimension, constructorItems] = useAppStore(
-    useShallow((state) => [state.dimension, state.constructorItems]),
-  );
+  const [dimension] = useAppStore(useShallow((state) => [state.dimension]));
 
   const canvasRef = useRef<KonvaStage | null>(null);
-
-  console.log("constructorItems", constructorItems);
 
   return (
     <div className="mt-[2rem] flex items-start justify-center align-top">
@@ -22,7 +20,9 @@ const Constructor = () => {
         height={dimension.height}
         className="border-[1px] border-dotted border-black dark:border-slate-500"
       >
-        <Layer></Layer>
+        <Layer>
+          <ConstructorItems />
+        </Layer>
       </Stage>
     </div>
   );
