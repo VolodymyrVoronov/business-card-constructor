@@ -1,3 +1,7 @@
+import { useShallow } from "zustand/react/shallow";
+
+import generateRandomUUID from "@/helpers/generateRandomUUID";
+import { useAppStore } from "@/store/app";
 import { ConstructorItemType } from "@/types";
 
 import Arc from "./Arc";
@@ -12,8 +16,115 @@ import Star from "./Star";
 import Text from "./Text";
 
 const Elements = () => {
+  const [addConstructorItem] = useAppStore(
+    useShallow((state) => [state.addConstructorItem]),
+  );
+
   const onElementButtonClick = (type: ConstructorItemType): void => {
-    console.log("Element button clicked", type);
+    if (type === "text") {
+      addConstructorItem({
+        itemId: generateRandomUUID(),
+        type: "text",
+        text: "Text",
+        x: 0,
+        y: 0,
+      });
+    }
+
+    if (type === "image") {
+      addConstructorItem({
+        itemId: generateRandomUUID(),
+        type: "image",
+        image: undefined,
+        x: 0,
+        y: 0,
+      });
+    }
+
+    if (type === "svg-path") {
+      addConstructorItem({
+        itemId: generateRandomUUID(),
+        type: "svg-path",
+        path: "",
+        x: 0,
+        y: 0,
+      });
+    }
+
+    if (type === "regular-polygon") {
+      addConstructorItem({
+        itemId: generateRandomUUID(),
+        type: "regular-polygon",
+        sides: 3,
+        radius: 50,
+        x: 0,
+        y: 0,
+      });
+    }
+
+    if (type === "arc") {
+      addConstructorItem({
+        itemId: generateRandomUUID(),
+        type: "arc",
+        x: 0,
+        y: 0,
+        innerRadius: 50,
+        outerRadius: 100,
+        angle: 360,
+      });
+    }
+
+    if (type === "line") {
+      addConstructorItem({
+        itemId: generateRandomUUID(),
+        type: "line",
+        points: [20, 0, 200, 0],
+      });
+    }
+
+    if (type === "star") {
+      addConstructorItem({
+        itemId: generateRandomUUID(),
+        type: "star",
+        x: 0,
+        y: 0,
+        numPoints: 5,
+        innerRadius: 30,
+        outerRadius: 50,
+      });
+    }
+
+    if (type === "circle") {
+      addConstructorItem({
+        itemId: generateRandomUUID(),
+        type: "circle",
+        x: 0,
+        y: 0,
+        radius: 50,
+      });
+    }
+
+    if (type === "ellipse") {
+      addConstructorItem({
+        itemId: generateRandomUUID(),
+        type: "ellipse",
+        x: 0,
+        y: 0,
+        radiusX: 70,
+        radiusY: 40,
+      });
+    }
+
+    if (type === "rect") {
+      addConstructorItem({
+        itemId: generateRandomUUID(),
+        type: "rect",
+        x: 0,
+        y: 0,
+        width: 100,
+        height: 50,
+      });
+    }
   };
 
   return (
