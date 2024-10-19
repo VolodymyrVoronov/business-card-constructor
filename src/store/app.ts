@@ -8,6 +8,7 @@ import { immer } from "zustand/middleware/immer";
 
 export interface IAppStore {
   selectedColor: IColor;
+  selectedId: string;
   dimension: {
     width: number;
     height: number;
@@ -17,8 +18,10 @@ export interface IAppStore {
 
 export interface IAppActions {
   setSelectedColor: (color: IColor) => void;
+  setSelectedId: (id: string) => void;
   setDimension: (dimension: IAppStore["dimension"]) => void;
   addConstructorItem: (item: ConstructorItem) => void;
+  updateConstructorItems: (items: ConstructorItem[]) => void;
 }
 
 export const useAppStore = create(
@@ -31,6 +34,8 @@ export const useAppStore = create(
           rgb: { r: 0, g: 0, b: 0, a: 1 },
         },
 
+        selectedId: "",
+
         dimension: {
           width: 336,
           height: 193,
@@ -41,6 +46,12 @@ export const useAppStore = create(
         setSelectedColor: (color) => {
           set((state) => {
             state.selectedColor = color;
+          });
+        },
+
+        setSelectedId: (id) => {
+          set((state) => {
+            state.selectedId = id;
           });
         },
 
@@ -59,6 +70,14 @@ export const useAppStore = create(
           set(
             produce((state) => {
               state.constructorItems.push(newItem);
+            }),
+          );
+        },
+
+        updateConstructorItems: (items) => {
+          set(
+            produce((state) => {
+              state.constructorItems = items;
             }),
           );
         },
