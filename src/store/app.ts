@@ -51,9 +51,14 @@ export const useAppStore = create(
         },
 
         addConstructorItem: (item) => {
+          const newItem: ConstructorItem = {
+            ...item,
+            isSelected: false,
+          };
+
           set(
             produce((state) => {
-              state.constructorItems.push(item);
+              state.constructorItems.push(newItem);
             }),
           );
         },

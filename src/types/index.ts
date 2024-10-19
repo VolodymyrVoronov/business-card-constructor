@@ -26,6 +26,7 @@ export type BusinessCard = {
 
 export interface ConstructorItemBase {
   itemId: string;
+  isSelected: boolean;
 }
 
 export type ConstructorItemType =
