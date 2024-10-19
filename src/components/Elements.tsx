@@ -28,6 +28,7 @@ const Elements = () => {
         text: "Text",
         x: 0,
         y: 0,
+        isSelected: false,
       });
     }
 
@@ -38,6 +39,7 @@ const Elements = () => {
         image: undefined,
         x: 0,
         y: 0,
+        isSelected: false,
       });
     }
 
@@ -48,6 +50,7 @@ const Elements = () => {
         path: "",
         x: 0,
         y: 0,
+        isSelected: false,
       });
     }
 
@@ -59,6 +62,7 @@ const Elements = () => {
         radius: 50,
         x: 0,
         y: 0,
+        isSelected: false,
       });
     }
 
@@ -71,6 +75,7 @@ const Elements = () => {
         innerRadius: 50,
         outerRadius: 100,
         angle: 360,
+        isSelected: false,
       });
     }
 
@@ -79,6 +84,7 @@ const Elements = () => {
         itemId: generateRandomUUID(),
         type: "line",
         points: [20, 0, 200, 0],
+        isSelected: false,
       });
     }
 
@@ -91,6 +97,7 @@ const Elements = () => {
         numPoints: 5,
         innerRadius: 30,
         outerRadius: 50,
+        isSelected: false,
       });
     }
 
@@ -101,6 +108,7 @@ const Elements = () => {
         x: 0,
         y: 0,
         radius: 50,
+        isSelected: false,
       });
     }
 
@@ -112,6 +120,7 @@ const Elements = () => {
         y: 0,
         radiusX: 70,
         radiusY: 40,
+        isSelected: false,
       });
     }
 
@@ -123,6 +132,7 @@ const Elements = () => {
         y: 0,
         width: 100,
         height: 50,
+        isSelected: false,
       });
     }
   };

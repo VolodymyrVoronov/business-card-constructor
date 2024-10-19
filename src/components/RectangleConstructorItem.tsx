@@ -5,14 +5,14 @@ import { Rect, Transformer } from "react-konva";
 import { ConstructorItem } from "@/types";
 
 interface IRectangleConstructorItemProps {
-  shapeProps: ConstructorItem;
+  constructorItem: ConstructorItem;
   isSelected: boolean;
   onSelect: () => void;
   onChange: (newAttrs: ConstructorItem) => void;
 }
 
 const RectangleConstructorItem = ({
-  shapeProps,
+  constructorItem,
   isSelected,
   onSelect,
   onChange,
@@ -31,14 +31,14 @@ const RectangleConstructorItem = ({
     <>
       <Rect
         ref={shapeRef}
-        fill={shapeProps.fill}
+        fill={constructorItem.fill}
         onClick={onSelect}
         onTap={onSelect}
-        {...shapeProps}
+        {...constructorItem}
         draggable
         onDragEnd={(e) => {
           onChange({
-            ...shapeProps,
+            ...constructorItem,
             x: e.target.x(),
             y: e.target.y(),
           });
@@ -53,7 +53,7 @@ const RectangleConstructorItem = ({
             node.scaleX(1);
             node.scaleY(1);
             onChange({
-              ...shapeProps,
+              ...constructorItem,
               x: node.x(),
               y: node.y(),
               width: Math.max(5, node.width() * scaleX),

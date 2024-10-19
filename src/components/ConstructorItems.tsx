@@ -30,7 +30,7 @@ const ConstructorItems = () => {
       {reactItems.map((rect, i) => (
         <RectangleConstructorItem
           key={i}
-          shapeProps={rect}
+          constructorItem={rect}
           isSelected={rect.itemId === selectedId}
           onSelect={() => {
             setSelectedId(rect.itemId);
