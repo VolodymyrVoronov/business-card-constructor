@@ -1,5 +1,5 @@
 // import { temporal } from "zundo";
-import { ConstructorItem } from "@/types";
+import { ConstructorItem, ConstructorItemType } from "@/types";
 import { produce } from "immer";
 import { type IColor } from "react-color-palette";
 import { create } from "zustand";
@@ -9,6 +9,7 @@ import { immer } from "zustand/middleware/immer";
 export interface IAppStore {
   selectedColor: IColor;
   selectedId: string;
+  selectedType: ConstructorItemType | undefined;
   dimension: {
     width: number;
     height: number;
@@ -19,6 +20,7 @@ export interface IAppStore {
 export interface IAppActions {
   setSelectedColor: (color: IColor) => void;
   setSelectedId: (id: string) => void;
+  setSelectedType: (type: ConstructorItemType) => void;
   setDimension: (dimension: IAppStore["dimension"]) => void;
   addConstructorItem: (item: ConstructorItem) => void;
   updateConstructorItems: (items: ConstructorItem[]) => void;
@@ -35,6 +37,7 @@ export const useAppStore = create(
         },
 
         selectedId: "",
+        selectedType: undefined,
 
         dimension: {
           width: 336,
@@ -55,6 +58,12 @@ export const useAppStore = create(
           });
         },
 
+        setSelectedType: (type) => {
+          set((state) => {
+            state.selectedType = type;
+          });
+        },
+
         setDimension: (dimension) => {
           set((state) => {
             state.dimension = dimension;
@@ -65,6 +74,7 @@ export const useAppStore = create(
           const newItem: ConstructorItem = {
             ...item,
             isSelected: false,
+            fill: get().selectedColor.hex,
           };
 
           set(

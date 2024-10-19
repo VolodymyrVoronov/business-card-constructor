@@ -31,7 +31,7 @@ const RectangleConstructorItem = ({
     <>
       <Rect
         ref={shapeRef}
-        fill="red"
+        fill={shapeProps.fill}
         onClick={onSelect}
         onTap={onSelect}
         {...shapeProps}

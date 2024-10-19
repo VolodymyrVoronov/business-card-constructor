@@ -5,15 +5,21 @@ import { useAppStore } from "@/store/app";
 import RectangleConstructorItem from "./RectangleConstructorItem";
 
 const ConstructorItems = () => {
-  const [selectedId, constructorItems, updateConstructorItems, setSelectedId] =
-    useAppStore(
-      useShallow((state) => [
-        state.selectedId,
-        state.constructorItems,
-        state.updateConstructorItems,
-        state.setSelectedId,
-      ]),
-    );
+  const [
+    selectedId,
+    constructorItems,
+    updateConstructorItems,
+    setSelectedId,
+    setSelectedType,
+  ] = useAppStore(
+    useShallow((state) => [
+      state.selectedId,
+      state.constructorItems,
+      state.updateConstructorItems,
+      state.setSelectedId,
+      state.setSelectedType,
+    ]),
+  );
 
   console.log("constructorItems", constructorItems);
 
@@ -28,6 +34,7 @@ const ConstructorItems = () => {
           isSelected={rect.itemId === selectedId}
           onSelect={() => {
             setSelectedId(rect.itemId);
+            setSelectedType("rect");
           }}
           onChange={(newAttrs) => {
             const rects = constructorItems.slice();
