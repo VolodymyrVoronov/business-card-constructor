@@ -9,8 +9,20 @@ import { useAppStore } from "@/store/app";
 import ConstructorItems from "./ConstructorItems";
 
 const Constructor = () => {
-  const [dimension, setSelectedId] = useAppStore(
-    useShallow((state) => [state.dimension, state.setSelectedId]),
+  const [
+    dimension,
+    canvasBackgroundColor,
+    canvasGradient,
+    canvasBackgroundImage,
+    setSelectedId,
+  ] = useAppStore(
+    useShallow((state) => [
+      state.dimension,
+      state.canvasBackgroundColor,
+      state.canvasGradient,
+      state.canvasBackgroundImage,
+      state.setSelectedId,
+    ]),
   );
 
   const canvasRef = useRef<KonvaStage | null>(null);
@@ -25,6 +37,30 @@ const Constructor = () => {
     }
   };
 
+  const canvasBackground = () => {
+    if (canvasBackgroundColor) {
+      return {
+        backgroundColor: canvasBackgroundColor,
+      };
+    }
+    if (canvasGradient) {
+      return {
+        backgroundImage: `linear-gradient(${canvasGradient})`,
+      };
+    }
+
+    if (canvasBackgroundImage) {
+      return {
+        backgroundImage: `url(${canvasBackgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      };
+    }
+  };
+
+  console.log("canvasBackground", canvasBackground());
+
   return (
     <div className="mt-[2rem] flex items-start justify-center align-top">
       <Stage
@@ -34,6 +70,9 @@ const Constructor = () => {
         onMouseDown={checkDeselect}
         onTouchStart={checkDeselect}
         className="border-[1px] border-dotted border-black dark:border-slate-500"
+        style={{
+          ...canvasBackground(),
+        }}
       >
         <Layer>
           <ConstructorItems />

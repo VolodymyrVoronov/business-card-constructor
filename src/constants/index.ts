@@ -159,6 +159,8 @@ export const BACKGROUNDS = [
   "#8d94f2",
   "#3a4d8c",
   "#b4d8a1",
+  "#f7f7f7",
+  "#d7e9f9",
 ] as const;
 
 export const GRADIENTS = [

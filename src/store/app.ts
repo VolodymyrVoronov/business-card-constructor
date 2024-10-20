@@ -14,6 +14,9 @@ export interface IAppStore {
     width: number;
     height: number;
   };
+  canvasBackgroundColor: string | undefined;
+  canvasGradient: [string, string] | undefined;
+  canvasBackgroundImage: string | undefined;
   constructorItems: ConstructorItem[];
 }
 
@@ -22,6 +25,10 @@ export interface IAppActions {
   setSelectedId: (id: string) => void;
   setSelectedType: (type: ConstructorItemType) => void;
   setDimension: (dimension: IAppStore["dimension"]) => void;
+  setCanvasBackgroundColor: (canvasBackgroundColor: string | undefined) => void;
+  setCanvasGradient: (canvasGradient: [string, string] | undefined) => void;
+  setCanvasBackgroundImage: (canvasBackgroundImage: string | undefined) => void;
+  clearCanvasBackground: () => void;
   addConstructorItem: (item: ConstructorItem) => void;
   updateConstructorItems: (items: ConstructorItem[]) => void;
 }
@@ -43,6 +50,10 @@ export const useAppStore = create(
           width: 336,
           height: 193,
         },
+
+        canvasBackgroundColor: undefined,
+        canvasGradient: undefined,
+        canvasBackgroundImage: undefined,
 
         constructorItems: [],
 
@@ -67,6 +78,34 @@ export const useAppStore = create(
         setDimension: (dimension) => {
           set((state) => {
             state.dimension = dimension;
+          });
+        },
+
+        setCanvasBackgroundColor: (canvasBackgroundColor) => {
+          set((state) => {
+            state.canvasBackgroundColor = canvasBackgroundColor;
+            state.canvasGradient = undefined;
+          });
+        },
+
+        setCanvasGradient: (canvasGradient) => {
+          set((state) => {
+            state.canvasGradient = canvasGradient;
+            state.canvasBackgroundColor = undefined;
+          });
+        },
+
+        setCanvasBackgroundImage: (canvasBackgroundImage) => {
+          set((state) => {
+            state.canvasBackgroundImage = canvasBackgroundImage;
+          });
+        },
+
+        clearCanvasBackground: () => {
+          set((state) => {
+            state.canvasBackgroundColor = undefined;
+            state.canvasGradient = undefined;
+            state.canvasBackgroundImage = undefined;
           });
         },
 
