@@ -21,8 +21,6 @@ const ConstructorItems = () => {
     ]),
   );
 
-  console.log("constructorItems", constructorItems);
-
   const reactItems = constructorItems.filter((item) => item.type === "rect");
 
   return (

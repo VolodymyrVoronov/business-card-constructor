@@ -100,3 +100,8 @@ export type ConstructorItem =
   | ConstructorItemArc
   | ConstructorItemSVGPath
   | ConstructorItemLine;
+
+type To = "to";
+type Direction = "top" | "right" | "bottom" | "left";
+
+export type GradientDirection = `${To} ${Direction}`;

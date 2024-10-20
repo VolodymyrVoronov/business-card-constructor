@@ -1,18 +1,20 @@
 import Konva from "konva";
 import { Stage as KonvaStage } from "konva/lib/Stage";
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import { Layer, Stage } from "react-konva";
 import { useShallow } from "zustand/react/shallow";
 
 import { useAppStore } from "@/store/app";
 
 import ConstructorItems from "./ConstructorItems";
+import { GradientDirection } from "@/types";
 
 const Constructor = () => {
   const [
     dimension,
     canvasBackgroundColor,
     canvasGradient,
+    canvasGradientDirection,
     canvasBackgroundImage,
     setSelectedId,
   ] = useAppStore(
@@ -20,6 +22,7 @@ const Constructor = () => {
       state.dimension,
       state.canvasBackgroundColor,
       state.canvasGradient,
+      state.canvasGradientDirection,
       state.canvasBackgroundImage,
       state.setSelectedId,
     ]),
@@ -37,29 +40,30 @@ const Constructor = () => {
     }
   };
 
-  const canvasBackground = () => {
-    if (canvasBackgroundColor) {
-      return {
-        backgroundColor: canvasBackgroundColor,
-      };
-    }
-    if (canvasGradient) {
-      return {
-        backgroundImage: `linear-gradient(to right, ${canvasGradient})`,
-      };
-    }
+  const canvasBackground = useMemo(
+    () => (canvasGradientDirection: GradientDirection) => {
+      if (canvasBackgroundColor) {
+        return {
+          backgroundColor: canvasBackgroundColor,
+        };
+      }
+      if (canvasGradient) {
+        return {
+          backgroundImage: `linear-gradient(${canvasGradientDirection}, ${canvasGradient})`,
+        };
+      }
 
-    if (canvasBackgroundImage) {
-      return {
-        backgroundImage: `url(${canvasBackgroundImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      };
-    }
-  };
-
-  console.log("canvasBackground", canvasBackground());
+      if (canvasBackgroundImage) {
+        return {
+          backgroundImage: `url(${canvasBackgroundImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        };
+      }
+    },
+    [canvasBackgroundColor, canvasGradient, canvasBackgroundImage],
+  );
 
   return (
     <div className="mt-[2rem] flex items-start justify-center align-top">
@@ -71,7 +75,7 @@ const Constructor = () => {
         onTouchStart={checkDeselect}
         className="border-[1px] border-dotted border-black dark:border-slate-500"
         style={{
-          ...canvasBackground(),
+          ...canvasBackground(canvasGradientDirection),
         }}
       >
         <Layer>
