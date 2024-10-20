@@ -45,7 +45,7 @@ const Constructor = () => {
     }
     if (canvasGradient) {
       return {
-        backgroundImage: `linear-gradient(${canvasGradient})`,
+        backgroundImage: `linear-gradient(to right, ${canvasGradient})`,
       };
     }
 

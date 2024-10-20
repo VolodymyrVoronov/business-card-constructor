@@ -2,7 +2,7 @@ import { Trash2Icon } from "lucide-react";
 import { ChangeEvent, useRef } from "react";
 import { useShallow } from "zustand/react/shallow";
 
-import { BACKGROUNDS } from "@/constants";
+import { BACKGROUNDS, GRADIENTS } from "@/constants";
 import convertToBase64 from "@/helpers/convertToBase64";
 import { cn } from "@/lib/utils";
 import { useAppStore } from "@/store/app";
@@ -11,17 +11,22 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Separator } from "./ui/separator";
 import { Hint } from "./Hint";
+import { ScrollArea } from "./ui/scroll-area";
 
 const Backgrounds = () => {
   const [
     canvasBackgroundColor,
+    canvasGradient,
     setCanvasBackgroundColor,
+    setCanvasGradient,
     setCanvasBackgroundImage,
     clearCanvasBackground,
   ] = useAppStore(
     useShallow((state) => [
       state.canvasBackgroundColor,
+      state.canvasGradient,
       state.setCanvasBackgroundColor,
+      state.setCanvasGradient,
       state.setCanvasBackgroundImage,
       state.clearCanvasBackground,
     ]),
@@ -31,6 +36,10 @@ const Backgrounds = () => {
 
   const onBackgroundButtonClick = (background: string): void => {
     setCanvasBackgroundColor(background);
+  };
+
+  const onGradientButtonClick = (gradient: [string, string]): void => {
+    setCanvasGradient(gradient);
   };
 
   const onColorInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -74,6 +83,28 @@ const Backgrounds = () => {
           />
         ))}
       </div>
+
+      <span className="text-center text-sm font-semibold">Gradients</span>
+
+      <ScrollArea className="h-[125px] w-auto">
+        <div className="flex flex-row flex-wrap gap-2 py-1">
+          {GRADIENTS.map((gradient) => (
+            <button
+              key={`gradient-${gradient}`}
+              className={cn(
+                "h-8 w-8 rounded border-[1px] border-black opacity-50 transition-all hover:scale-110 hover:opacity-100 dark:border-slate-500",
+                canvasGradient?.toString() === gradient.toString() &&
+                  "scale-105 opacity-100",
+              )}
+              style={{ background: `linear-gradient(to right, ${gradient})` }}
+              onClick={() =>
+                onGradientButtonClick(gradient as [string, string])
+              }
+            />
+          ))}
+        </div>
+      </ScrollArea>
+
       <Separator
         orientation="horizontal"
         className="bg-black dark:bg-slate-500"
