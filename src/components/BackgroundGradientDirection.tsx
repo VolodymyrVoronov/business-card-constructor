@@ -33,7 +33,7 @@ const BackgroundGradientDirection = () => {
             className={"col-start-5 col-end-6"}
             onClick={() => onDirectionButtonClick("to left")}
           >
-            <ArrowLeft className="size-5" />
+            <ArrowLeft className="size-4" />
           </Button>
         </Hint>
 
@@ -46,7 +46,7 @@ const BackgroundGradientDirection = () => {
             className={"col-start-5 col-end-6"}
             onClick={() => onDirectionButtonClick("to top")}
           >
-            <ArrowUp className="size-5" />
+            <ArrowUp className="size-4" />
           </Button>
         </Hint>
 
@@ -59,7 +59,7 @@ const BackgroundGradientDirection = () => {
             className={"col-start-5 col-end-6"}
             onClick={() => onDirectionButtonClick("to bottom")}
           >
-            <ArrowDown className="size-5" />
+            <ArrowDown className="size-4" />
           </Button>
         </Hint>
 
@@ -72,7 +72,7 @@ const BackgroundGradientDirection = () => {
             className={"col-start-5 col-end-6"}
             onClick={() => onDirectionButtonClick("to right")}
           >
-            <ArrowRight className="size-5" />
+            <ArrowRight className="size-4" />
           </Button>
         </Hint>
       </div>
