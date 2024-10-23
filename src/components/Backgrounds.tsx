@@ -1,5 +1,6 @@
 import BackgroundColors from "./BackgroundColors";
 import BackgroundGradients from "./BackgroundGradients";
+import BackgroundOpacity from "./BackgroundOpacity";
 import BackgroundOptions from "./BackgroundOptions";
 import { Separator } from "./ui/separator";
 
@@ -14,7 +15,10 @@ const Backgrounds = () => {
         className="bg-black dark:bg-slate-500"
       />
 
-      <BackgroundOptions />
+      <div className="flex flex-col gap-y-3">
+        <BackgroundOptions />
+        <BackgroundOpacity />
+      </div>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { Stage as KonvaStage } from "konva/lib/Stage";
 import { useMemo, useRef } from "react";
 import { Layer, Stage } from "react-konva";
 import { useShallow } from "zustand/react/shallow";
+import { rgba } from "polished";
 
 import { useAppStore } from "@/store/app";
 
@@ -13,6 +14,7 @@ const Constructor = () => {
   const [
     dimension,
     canvasBackgroundColor,
+    canvasBackgroundColorOpacity,
     canvasGradient,
     canvasGradientDirection,
     canvasBackgroundImage,
@@ -21,6 +23,7 @@ const Constructor = () => {
     useShallow((state) => [
       state.dimension,
       state.canvasBackgroundColor,
+      state.canvasBackgroundColorOpacity,
       state.canvasGradient,
       state.canvasGradientDirection,
       state.canvasBackgroundImage,
@@ -44,7 +47,11 @@ const Constructor = () => {
     () => (canvasGradientDirection: GradientDirection) => {
       if (canvasBackgroundColor) {
         return {
-          backgroundColor: canvasBackgroundColor,
+          backgroundColor: rgba(
+            canvasBackgroundColor,
+            canvasBackgroundColorOpacity / 100,
+          ),
+          // backgroundColor: canvasBackgroundColor,
         };
       }
       if (canvasGradient) {
@@ -62,7 +69,12 @@ const Constructor = () => {
         };
       }
     },
-    [canvasBackgroundColor, canvasGradient, canvasBackgroundImage],
+    [
+      canvasBackgroundColor,
+      canvasGradient,
+      canvasBackgroundImage,
+      canvasBackgroundColorOpacity,
+    ],
   );
 
   return (

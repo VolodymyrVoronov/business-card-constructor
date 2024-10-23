@@ -8,16 +8,22 @@ import { Hint } from "./Hint";
 import { Button } from "./ui/button";
 
 const BackgroundGradientDirection = () => {
-  const [canvasGradientDirection, setCanvasGradientDirection] = useAppStore(
-    useShallow((state) => [
-      state.canvasGradientDirection,
-      state.setCanvasGradientDirection,
-    ]),
-  );
+  const [canvasGradientDirection, canvasGradient, setCanvasGradientDirection] =
+    useAppStore(
+      useShallow((state) => [
+        state.canvasGradientDirection,
+        state.canvasGradient,
+        state.setCanvasGradientDirection,
+      ]),
+    );
 
   const onDirectionButtonClick = (direction: GradientDirection): void => {
     setCanvasGradientDirection(direction);
   };
+
+  if (!canvasGradient) {
+    return null;
+  }
 
   return (
     <div className="flex flex-row items-center gap-x-2">

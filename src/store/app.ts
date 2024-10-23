@@ -20,6 +20,7 @@ export interface IAppStore {
     height: number;
   };
   canvasBackgroundColor: string | undefined;
+  canvasBackgroundColorOpacity: number;
   canvasGradient: [string, string] | undefined;
   canvasGradientDirection: GradientDirection;
   canvasBackgroundImage: string | undefined;
@@ -32,6 +33,9 @@ export interface IAppActions {
   setSelectedType: (type: ConstructorItemType) => void;
   setDimension: (dimension: IAppStore["dimension"]) => void;
   setCanvasBackgroundColor: (canvasBackgroundColor: string | undefined) => void;
+  setCanvasBackgroundColorOpacity: (
+    canvasBackgroundColorOpacity: number,
+  ) => void;
   setCanvasGradient: (canvasGradient: [string, string] | undefined) => void;
   setCanvasGradientDirection: (
     canvasGradientDirection: GradientDirection,
@@ -61,6 +65,7 @@ export const useAppStore = create(
         },
 
         canvasBackgroundColor: undefined,
+        canvasBackgroundColorOpacity: 100,
         canvasGradient: undefined,
         canvasGradientDirection: "to right",
         canvasBackgroundImage: undefined,
@@ -95,6 +100,13 @@ export const useAppStore = create(
           set((state) => {
             state.canvasBackgroundColor = canvasBackgroundColor;
             state.canvasGradient = undefined;
+            state.canvasBackgroundColorOpacity = 100;
+          });
+        },
+
+        setCanvasBackgroundColorOpacity: (canvasBackgroundColorOpacity) => {
+          set((state) => {
+            state.canvasBackgroundColorOpacity = canvasBackgroundColorOpacity;
           });
         },
 
