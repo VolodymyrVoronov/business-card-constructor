@@ -15,13 +15,13 @@ export type Theme = "light" | "dark" | "system";
 
 export type BusinessCard = {
   id: number;
-  inMm: string;
-  usedIn: string;
-  dpis: {
-    dpi: number;
+  title: string;
+  size: string;
+  dpi: number;
+  dimensions: {
     width: number;
     height: number;
-  }[];
+  };
 };
 
 export interface ConstructorItemBase {

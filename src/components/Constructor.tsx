@@ -1,14 +1,14 @@
 import Konva from "konva";
 import { Stage as KonvaStage } from "konva/lib/Stage";
+import { rgba } from "polished";
 import { useMemo, useRef } from "react";
 import { Layer, Stage } from "react-konva";
 import { useShallow } from "zustand/react/shallow";
-import { rgba } from "polished";
 
 import { useAppStore } from "@/store/app";
+import { GradientDirection } from "@/types";
 
 import ConstructorItems from "./ConstructorItems";
-import { GradientDirection } from "@/types";
 
 const Constructor = () => {
   const [
@@ -51,7 +51,6 @@ const Constructor = () => {
             canvasBackgroundColor,
             canvasBackgroundColorOpacity / 100,
           ),
-          // backgroundColor: canvasBackgroundColor,
         };
       }
       if (canvasGradient) {
