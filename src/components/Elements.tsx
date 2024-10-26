@@ -29,6 +29,7 @@ const Elements = () => {
         x: 0,
         y: 0,
         isSelected: false,
+        zIndex: 0,
       });
     }
 
@@ -40,6 +41,7 @@ const Elements = () => {
         x: 0,
         y: 0,
         isSelected: false,
+        zIndex: 0,
       });
     }
 
@@ -51,6 +53,7 @@ const Elements = () => {
         x: 0,
         y: 0,
         isSelected: false,
+        zIndex: 0,
       });
     }
 
@@ -63,6 +66,7 @@ const Elements = () => {
         x: 0,
         y: 0,
         isSelected: false,
+        zIndex: 0,
       });
     }
 
@@ -76,6 +80,7 @@ const Elements = () => {
         outerRadius: 100,
         angle: 360,
         isSelected: false,
+        zIndex: 0,
       });
     }
 
@@ -85,6 +90,7 @@ const Elements = () => {
         type: "line",
         points: [20, 0, 200, 0],
         isSelected: false,
+        zIndex: 0,
       });
     }
 
@@ -98,6 +104,7 @@ const Elements = () => {
         innerRadius: 30,
         outerRadius: 50,
         isSelected: false,
+        zIndex: 0,
       });
     }
 
@@ -109,6 +116,7 @@ const Elements = () => {
         y: 0,
         radius: 50,
         isSelected: false,
+        zIndex: 0,
       });
     }
 
@@ -121,6 +129,7 @@ const Elements = () => {
         radiusX: 70,
         radiusY: 40,
         isSelected: false,
+        zIndex: 0,
       });
     }
 
@@ -133,6 +142,7 @@ const Elements = () => {
         width: 100,
         height: 50,
         isSelected: false,
+        zIndex: 0,
       });
     }
   };

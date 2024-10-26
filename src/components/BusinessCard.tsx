@@ -1,7 +1,5 @@
 import { cn } from "@/lib/utils";
 
-import { type BusinessCard as BusinessCardData } from "@/types";
-
 import {
   Card,
   CardContent,
@@ -18,7 +16,13 @@ import {
 import { Button } from "./ui/button";
 
 interface IBusinessCardProps {
-  cardData: BusinessCardData;
+  cardData: {
+    id: number;
+    title: string;
+    size: string;
+    dpi: number;
+    dimensions: { width: number; height: number };
+  };
   className?: string;
 }
 

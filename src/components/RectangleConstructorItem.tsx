@@ -7,7 +7,7 @@ import { ConstructorItem } from "@/types";
 interface IRectangleConstructorItemProps {
   constructorItem: ConstructorItem;
   isSelected: boolean;
-  onSelect: () => void;
+  onSelect: (e: Konva.KonvaEventObject<MouseEvent>) => void;
   onChange: (newAttrs: ConstructorItem) => void;
 }
 
@@ -26,6 +26,13 @@ const RectangleConstructorItem = ({
       trRef.current?.getLayer()?.batchDraw();
     }
   }, [isSelected]);
+
+  useEffect(() => {
+    if (isSelected && shapeRef.current) {
+      shapeRef.current?.setZIndex(constructorItem.zIndex);
+      shapeRef.current?.moveToBottom();
+    }
+  }, [isSelected, constructorItem.zIndex]);
 
   return (
     <>

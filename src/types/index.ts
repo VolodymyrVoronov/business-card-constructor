@@ -15,18 +15,19 @@ export type Theme = "light" | "dark" | "system";
 
 export type BusinessCard = {
   id: number;
-  title: string;
-  size: string;
-  dpi: number;
-  dimensions: {
+  inMm: string;
+  usedIn: string;
+  dpis: {
+    dpi: number;
     width: number;
     height: number;
-  };
+  }[];
 };
 
 export interface ConstructorItemBase {
   itemId: string;
   isSelected: boolean;
+  zIndex: number;
 }
 
 export type ConstructorItemType =

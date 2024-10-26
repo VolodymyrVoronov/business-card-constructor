@@ -1,10 +1,10 @@
-import { useAppStore } from "@/store/app";
+import { ChangeEvent } from "react";
 import { useShallow } from "zustand/react/shallow";
 
-import DimensionButton from "./DimensionButton";
+import { useAppStore } from "@/store/app";
 
 import { Input } from "@/components/ui/input";
-import { ChangeEvent } from "react";
+import DimensionButton from "./DimensionButton";
 
 const Dimension = () => {
   const [dimension, setDimension] = useAppStore(

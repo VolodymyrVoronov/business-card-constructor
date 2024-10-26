@@ -1,8 +1,12 @@
-import { type BusinessCard as BusinessCardType } from "@/types";
-
 import BusinessCard from "./BusinessCard";
 
-const businessCards: BusinessCardType[] = [
+const businessCards: {
+  id: number;
+  title: string;
+  size: string;
+  dpi: number;
+  dimensions: { width: number; height: number };
+}[] = [
   {
     id: 1,
     title: "The United States and Canada",
