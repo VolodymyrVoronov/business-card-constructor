@@ -41,7 +41,10 @@ const Position = () => {
     if (selectedConstructorItem) {
       const newItem = {
         ...selectedConstructorItem,
-        zIndex: selectedConstructorItem.zIndex - 1,
+        zIndex:
+          selectedConstructorItem.zIndex === 0
+            ? 0
+            : selectedConstructorItem.zIndex - 1,
       };
 
       updateConstructorItems([

@@ -1,5 +1,5 @@
 import { Paintbrush } from "lucide-react";
-import { ColorPicker as CP } from "react-color-palette";
+import { ColorPicker as CP, type IColor } from "react-color-palette";
 import "react-color-palette/css";
 import { useShallow } from "zustand/react/shallow";
 
@@ -13,9 +13,29 @@ import {
 import { Button } from "./ui/button";
 
 const ColorPicker = () => {
-  const [selectedColor, setSelectedColor] = useAppStore(
-    useShallow((state) => [state.selectedColor, state.setSelectedColor]),
+  const [
+    selectedColor,
+    selectedId,
+    selectedType,
+    setSelectedColor,
+    setConstructorItemBackgroundColor,
+  ] = useAppStore(
+    useShallow((state) => [
+      state.selectedColor,
+      state.selectedId,
+      state.selectedType,
+      state.setSelectedColor,
+      state.setConstructorItemBackgroundColor,
+    ]),
   );
+
+  const onColorChange = (color: IColor) => {
+    setSelectedColor(color);
+
+    if (selectedId && selectedType === "rect") {
+      setConstructorItemBackgroundColor(color);
+    }
+  };
 
   return (
     <Popover>
@@ -26,7 +46,7 @@ const ColorPicker = () => {
       </PopoverTrigger>
 
       <PopoverContent>
-        <CP color={selectedColor} onChange={setSelectedColor} height={100} />
+        <CP color={selectedColor} onChange={onColorChange} height={100} />
       </PopoverContent>
     </Popover>
   );

@@ -30,7 +30,6 @@ const RectangleConstructorItem = ({
   useEffect(() => {
     if (isSelected && shapeRef.current) {
       shapeRef.current?.setZIndex(constructorItem.zIndex);
-      shapeRef.current?.moveToBottom();
     }
   }, [isSelected, constructorItem.zIndex]);
 

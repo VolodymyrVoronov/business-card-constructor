@@ -44,6 +44,7 @@ export interface IAppActions {
   clearCanvasBackground: () => void;
   addConstructorItem: (item: ConstructorItem) => void;
   updateConstructorItems: (items: ConstructorItem[]) => void;
+  setConstructorItemBackgroundColor: (color: IColor) => void;
 }
 
 export const useAppStore = create(
@@ -157,6 +158,22 @@ export const useAppStore = create(
               state.constructorItems = items;
             }),
           );
+        },
+
+        setConstructorItemBackgroundColor: (color: IColor) => {
+          const itemId = get().selectedId;
+
+          set((state) => {
+            state.constructorItems = state.constructorItems.map((item) => {
+              if (item.itemId === itemId) {
+                return {
+                  ...item,
+                  fill: color.hex,
+                };
+              }
+              return item;
+            });
+          });
         },
       })),
       // { limit: 50 },
