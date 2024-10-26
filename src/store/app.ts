@@ -43,6 +43,7 @@ export interface IAppActions {
   setCanvasBackgroundImage: (canvasBackgroundImage: string | undefined) => void;
   clearCanvasBackground: () => void;
   addConstructorItem: (item: ConstructorItem) => void;
+  deleteConstructorItem: (id: string) => void;
   updateConstructorItems: (items: ConstructorItem[]) => void;
   setConstructorItemBackgroundColor: (color: IColor) => void;
 }
@@ -148,6 +149,16 @@ export const useAppStore = create(
           set(
             produce((state) => {
               state.constructorItems.push(newItem);
+            }),
+          );
+        },
+
+        deleteConstructorItem: (id) => {
+          set(
+            produce((state) => {
+              state.constructorItems = state.constructorItems.filter(
+                (item: ConstructorItem) => item.itemId !== id,
+              );
             }),
           );
         },

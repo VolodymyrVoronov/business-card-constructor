@@ -1,13 +1,15 @@
+import Actions from "@/components/Actions";
 import Dimension from "@/components/Dimension";
-import ElementColor from "@/components/ElementColor";
-import Position from "@/components/Position";
+import ElementColors from "@/components/ElementColors";
+import Positions from "@/components/Positions";
 
 const RightSide = () => {
   return (
     <div className="h-auto overflow-auto border-l-[1px] border-black dark:border-slate-500">
       <Dimension />
-      <Position />
-      <ElementColor />
+      <Actions />
+      <Positions />
+      <ElementColors />
     </div>
   );
 };

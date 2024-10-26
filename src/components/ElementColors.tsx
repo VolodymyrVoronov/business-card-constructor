@@ -4,7 +4,7 @@ import { useAppStore } from "@/store/app";
 
 import ColorPicker from "./ColorPicker";
 
-const ElementColor = () => {
+const ElementColors = () => {
   const [selectedId] = useAppStore(useShallow((state) => [state.selectedId]));
 
   if (!selectedId) {
@@ -22,4 +22,4 @@ const ElementColor = () => {
   );
 };
 
-export default ElementColor;
+export default ElementColors;

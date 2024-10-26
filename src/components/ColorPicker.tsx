@@ -1,4 +1,4 @@
-import { Paintbrush } from "lucide-react";
+import { Paintbrush, PaintBucket } from "lucide-react";
 import { ColorPicker as CP, type IColor } from "react-color-palette";
 import "react-color-palette/css";
 import { useShallow } from "zustand/react/shallow";
@@ -12,7 +12,11 @@ import {
 } from "@/components/ui/popover";
 import { Button } from "./ui/button";
 
-const ColorPicker = () => {
+interface IColorPickerProps {
+  icon?: "fill" | "brush";
+}
+
+const ColorPicker = ({ icon = "fill" }: IColorPickerProps) => {
   const [
     selectedColor,
     selectedId,
@@ -37,11 +41,16 @@ const ColorPicker = () => {
     }
   };
 
+  const icons = {
+    fill: <PaintBucket className="is" />,
+    brush: <Paintbrush className="is" />,
+  };
+
   return (
     <Popover>
       <PopoverTrigger asChild>
         <Button size="icon" variant="outline">
-          <Paintbrush className="is" />
+          {icons[icon]}
         </Button>
       </PopoverTrigger>
 

@@ -6,7 +6,7 @@ import { useAppStore } from "@/store/app";
 import { Hint } from "./Hint";
 import { Button } from "./ui/button";
 
-const Position = () => {
+const Positions = () => {
   const [selectedId, constructorItems, updateConstructorItems] = useAppStore(
     useShallow((state) => [
       state.selectedId,
@@ -56,7 +56,7 @@ const Position = () => {
 
   return (
     <div className="flex flex-col gap-y-2 border-b-[1px] border-black p-2 dark:border-slate-500">
-      <span className="text-center text-sm font-semibold">Position</span>
+      <span className="text-center text-sm font-semibold">Positions</span>
 
       <div className="flex gap-x-2">
         <Hint label="Bring to front">
@@ -89,4 +89,4 @@ const Position = () => {
   );
 };
 
-export default Position;
+export default Positions;
