@@ -53,19 +53,6 @@ const Actions = () => {
       <span className="text-center text-sm font-semibold">Actions</span>
 
       <div className="flex gap-x-2">
-        <Hint label="Delete">
-          <Button
-            type="button"
-            size="icon"
-            onClick={onDeleteButtonClick}
-            variant="outline"
-          >
-            <Trash2 className="is" />
-
-            <span className="sr-only">Delete</span>
-          </Button>
-        </Hint>
-
         <Hint label="Duplicate">
           <Button
             type="button"
@@ -76,6 +63,19 @@ const Actions = () => {
             <Copy className="is" />
 
             <span className="sr-only">Duplicate</span>
+          </Button>
+        </Hint>
+
+        <Hint label="Delete">
+          <Button
+            type="button"
+            size="icon"
+            onClick={onDeleteButtonClick}
+            variant="outline"
+          >
+            <Trash2 className="is" />
+
+            <span className="sr-only">Delete</span>
           </Button>
         </Hint>
       </div>
