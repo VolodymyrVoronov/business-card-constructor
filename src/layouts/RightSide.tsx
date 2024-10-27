@@ -1,4 +1,5 @@
 import Actions from "@/components/Actions";
+import Border from "@/components/Border";
 import Dimension from "@/components/Dimension";
 import ElementColors from "@/components/ElementColors";
 import Positions from "@/components/Positions";
@@ -12,6 +13,7 @@ const RightSide = () => {
       <Positions />
       <ElementColors />
       <Radius />
+      <Border />
     </div>
   );
 };
