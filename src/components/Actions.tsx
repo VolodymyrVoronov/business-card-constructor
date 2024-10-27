@@ -1,8 +1,8 @@
-import { Trash2, Copy } from "lucide-react";
+import { Copy, Trash2 } from "lucide-react";
 import { useShallow } from "zustand/react/shallow";
 
-import { useAppStore } from "@/store/app";
 import generateRandomUUID from "@/helpers/generateRandomUUID";
+import { useAppStore } from "@/store/app";
 
 import { Hint } from "./Hint";
 import { Button } from "./ui/button";

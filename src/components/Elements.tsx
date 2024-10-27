@@ -143,6 +143,9 @@ const Elements = () => {
         height: 50,
         isSelected: false,
         zIndex: 0,
+        cornerRadius: [0, 0, 0, 0],
+        stroke: "transparent",
+        strokeWidth: 1,
       });
     }
   };

@@ -2,6 +2,7 @@ import Actions from "@/components/Actions";
 import Dimension from "@/components/Dimension";
 import ElementColors from "@/components/ElementColors";
 import Positions from "@/components/Positions";
+import Radius from "@/components/Radius";
 
 const RightSide = () => {
   return (
@@ -10,6 +11,7 @@ const RightSide = () => {
       <Actions />
       <Positions />
       <ElementColors />
+      <Radius />
     </div>
   );
 };
