@@ -120,10 +120,11 @@ const Radius = () => {
     <div className="flex flex-col gap-y-2 border-b-[1px] border-black p-2 dark:border-slate-500">
       <span className="text-center text-sm font-semibold">Radius</span>
 
-      <div className="grid grid-cols-3 grid-rows-3 gap-1">
+      <div className="grid grid-cols-3 grid-rows-3">
         <div className="">
           <small>Top left</small>
           <Input
+            className="h-6"
             type="number"
             disabled={!selectedConstructorItem}
             min={0}
@@ -137,6 +138,7 @@ const Radius = () => {
         <div className="col-start-3">
           <small>Top right</small>
           <Input
+            className="h-6"
             type="number"
             disabled={!selectedConstructorItem}
             min={0}
@@ -150,19 +152,7 @@ const Radius = () => {
         <div className="row-start-3">
           <small>Bottom left</small>
           <Input
-            type="number"
-            disabled={!selectedConstructorItem}
-            min={0}
-            max={100}
-            step={1}
-            value={selectedConstructorItem?.cornerRadius[2] ?? 0}
-            onChange={onBottomLeftRadiusChange}
-          />
-        </div>
-
-        <div className="col-start-3 row-start-3">
-          <small>Bottom right</small>
-          <Input
+            className="h-6"
             type="number"
             disabled={!selectedConstructorItem}
             min={0}
@@ -173,9 +163,24 @@ const Radius = () => {
           />
         </div>
 
+        <div className="col-start-3 row-start-3">
+          <small>Bottom right</small>
+          <Input
+            className="h-6"
+            type="number"
+            disabled={!selectedConstructorItem}
+            min={0}
+            max={100}
+            step={1}
+            value={selectedConstructorItem?.cornerRadius[2] ?? 0}
+            onChange={onBottomLeftRadiusChange}
+          />
+        </div>
+
         <div className="col-start-2 row-start-2">
           <small>Full radius</small>
           <Input
+            className="h-6"
             type="number"
             disabled={!selectedConstructorItem}
             min={0}

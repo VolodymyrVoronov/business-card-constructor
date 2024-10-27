@@ -145,7 +145,9 @@ const Elements = () => {
         zIndex: 0,
         cornerRadius: [0, 0, 0, 0],
         stroke: "transparent",
-        strokeWidth: 1,
+        strokeWidth: 0,
+        dash: [10, 10],
+        dashEnabled: false,
       });
     }
   };
