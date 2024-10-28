@@ -5,9 +5,11 @@ import { useAppStore } from "@/store/app";
 import ColorPicker from "./ColorPicker";
 
 const ElementColors = () => {
-  const [selectedId] = useAppStore(useShallow((state) => [state.selectedId]));
+  const [selectedId, selectedType] = useAppStore(
+    useShallow((state) => [state.selectedId, state.selectedType]),
+  );
 
-  if (!selectedId) {
+  if (!selectedId || selectedType === "image") {
     return null;
   }
 

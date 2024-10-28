@@ -31,7 +31,9 @@ const Dimension = () => {
 
   return (
     <div className="flex flex-col gap-y-2 border-b-[1px] border-black p-2 dark:border-slate-500">
-      <span className="text-center text-sm font-semibold">Dimension</span>
+      <span className="text-center text-sm font-semibold">
+        Canvas dimension
+      </span>
 
       <div className="grid grid-cols-[auto_1fr] items-end gap-2">
         <div className="grid grid-cols-2 gap-2">
@@ -44,6 +46,7 @@ const Dimension = () => {
               onChange={onWidthChange}
             />
           </div>
+
           <div>
             <span className="text-sm">Height</span>
             <Input

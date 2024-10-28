@@ -140,10 +140,12 @@ export const useAppStore = create(
         },
 
         addConstructorItem: (item) => {
+          const isImage = item.type === "image";
+
           const newItem: ConstructorItem = {
             ...item,
             isSelected: false,
-            fill: get().selectedColor.hex,
+            fill: isImage ? undefined : get().selectedColor.hex,
           };
 
           set(

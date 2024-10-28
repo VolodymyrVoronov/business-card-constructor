@@ -1,24 +1,29 @@
 import Konva from "konva";
 import { useEffect, useRef } from "react";
-import { Rect, Transformer } from "react-konva";
+import { Image, Transformer } from "react-konva";
 
 import { ConstructorItem } from "@/types";
+import useImage from "use-image";
 
-interface IRectangleConstructorItemProps {
+interface IImageConstructorItemProps {
+  dimension: { width: number; height: number };
   constructorItem: ConstructorItem;
   isSelected: boolean;
   onSelect: (e: Konva.KonvaEventObject<MouseEvent>) => void;
   onChange: (newAttrs: ConstructorItem, id: string) => void;
 }
 
-const RectangleConstructorItem = ({
+const ImageConstructorItem = ({
+  dimension,
   constructorItem,
   isSelected,
   onSelect,
   onChange,
-}: IRectangleConstructorItemProps) => {
-  const shapeRef = useRef<Konva.Rect>(null);
+}: IImageConstructorItemProps) => {
+  const shapeRef = useRef<Konva.Image>(null);
   const trRef = useRef<Konva.Transformer>(new Konva.Transformer());
+
+  const [image] = useImage(constructorItem.image);
 
   useEffect(() => {
     if (isSelected && shapeRef.current) {
@@ -33,14 +38,25 @@ const RectangleConstructorItem = ({
     }
   }, [isSelected, constructorItem.zIndex]);
 
+  const imageWidth =
+    (image?.width as number) > dimension.width
+      ? (image?.width as number) / 4
+      : image?.width || 0;
+  const imageHeight =
+    (image?.height as number) > dimension.height
+      ? (image?.height as number) / 4
+      : image?.height || 0;
+
   return (
     <>
-      <Rect
+      <Image
         ref={shapeRef}
-        fill={constructorItem.fill}
         onClick={onSelect}
         onTap={onSelect}
+        width={imageWidth}
+        height={imageHeight}
         {...constructorItem}
+        image={image}
         draggable
         onDragEnd={(e) => {
           onChange(
@@ -112,10 +128,16 @@ const RectangleConstructorItem = ({
             }
             return newBox;
           }}
+          enabledAnchors={[
+            "top-left",
+            "top-right",
+            "bottom-left",
+            "bottom-right",
+          ]}
         />
       )}
     </>
   );
 };
 
-export default RectangleConstructorItem;
+export default ImageConstructorItem;

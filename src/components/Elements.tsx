@@ -1,5 +1,7 @@
+import { ImageConfig } from "konva/lib/shapes/Image";
 import { useShallow } from "zustand/react/shallow";
 
+import { BASE64_PLACEHOLDER } from "@/constants";
 import generateRandomUUID from "@/helpers/generateRandomUUID";
 import { useAppStore } from "@/store/app";
 import { ConstructorItemType } from "@/types";
@@ -37,11 +39,16 @@ const Elements = () => {
       addConstructorItem({
         itemId: generateRandomUUID(),
         type: "image",
-        image: undefined,
+        image: BASE64_PLACEHOLDER as Extract<ImageConfig, "image">,
         x: 0,
         y: 0,
         isSelected: false,
         zIndex: 0,
+        cornerRadius: [0, 0, 0, 0],
+        stroke: "transparent",
+        strokeWidth: 0,
+        dash: [10, 10],
+        dashEnabled: false,
       });
     }
 
