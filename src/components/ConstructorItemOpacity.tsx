@@ -24,8 +24,6 @@ const ConstructorItemOpacity = () => {
     : null;
 
   const onSliderChange = (value: number[]): void => {
-    console.log(value);
-
     if (selectedConstructorItem) {
       const newItem = {
         ...selectedConstructorItem,
