@@ -42,6 +42,9 @@ const RectangleConstructorItem = ({
         onTap={onSelect}
         {...constructorItem}
         opacity={constructorItem.opacity! / 100}
+        shadowColor={constructorItem.shadowColor}
+        shadowBlur={constructorItem.shadowBlur}
+        shadowOffset={constructorItem.shadowOffset}
         draggable
         onDragEnd={(e) => {
           onChange(

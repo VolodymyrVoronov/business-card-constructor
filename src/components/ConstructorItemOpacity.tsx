@@ -38,7 +38,7 @@ const ConstructorItemOpacity = () => {
   };
 
   return (
-    <div className="flex flex-col gap-y-2 border-b-[1px] border-black p-2 pb-4 dark:border-slate-500">
+    <div className="flex flex-col gap-y-3 border-b-[1px] border-black p-2 pb-4 dark:border-slate-500">
       <span className="text-center text-sm font-semibold">
         Opacity {`(${selectedConstructorItem?.opacity || 100}%)`}
       </span>

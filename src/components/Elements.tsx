@@ -50,6 +50,13 @@ const Elements = () => {
         dash: [10, 10],
         dashEnabled: false,
         opacity: 100,
+        visible: true,
+        shadowColor: "transparent",
+        shadowBlur: 0,
+        shadowOffset: {
+          x: 0,
+          y: 0,
+        },
       });
     }
 
@@ -125,6 +132,18 @@ const Elements = () => {
         radius: 50,
         isSelected: false,
         zIndex: 0,
+        stroke: "transparent",
+        strokeWidth: 0,
+        dash: [10, 10],
+        dashEnabled: false,
+        opacity: 100,
+        visible: true,
+        shadowColor: "transparent",
+        shadowBlur: 0,
+        shadowOffset: {
+          x: 0,
+          y: 0,
+        },
       });
     }
 
@@ -157,6 +176,13 @@ const Elements = () => {
         dash: [10, 10],
         dashEnabled: false,
         opacity: 100,
+        visible: true,
+        shadowColor: "transparent",
+        shadowBlur: 0,
+        shadowOffset: {
+          x: 0,
+          y: 0,
+        },
       });
     }
   };

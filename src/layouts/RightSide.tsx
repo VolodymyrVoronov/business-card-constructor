@@ -6,6 +6,7 @@ import ElementColors from "@/components/ElementColors";
 import ImageUploader from "@/components/ImageUploader";
 import Positions from "@/components/Positions";
 import Radius from "@/components/Radius";
+import Shadow from "@/components/Shadow";
 
 const RightSide = () => {
   return (
@@ -18,6 +19,7 @@ const RightSide = () => {
       <Border />
       <ImageUploader />
       <ConstructorItemOpacity />
+      <Shadow />
     </div>
   );
 };
