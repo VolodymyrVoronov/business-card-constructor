@@ -56,6 +56,7 @@ const ImageConstructorItem = ({
         width={imageWidth}
         height={imageHeight}
         {...constructorItem}
+        opacity={constructorItem.opacity! / 100}
         image={image}
         draggable
         onDragEnd={(e) => {
@@ -128,12 +129,6 @@ const ImageConstructorItem = ({
             }
             return newBox;
           }}
-          enabledAnchors={[
-            "top-left",
-            "top-right",
-            "bottom-left",
-            "bottom-right",
-          ]}
         />
       )}
     </>

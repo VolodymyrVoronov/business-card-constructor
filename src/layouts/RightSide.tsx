@@ -1,7 +1,9 @@
 import Actions from "@/components/Actions";
 import Border from "@/components/Border";
+import ConstructorItemOpacity from "@/components/ConstructorItemOpacity";
 import Dimension from "@/components/Dimension";
 import ElementColors from "@/components/ElementColors";
+import ImageUploader from "@/components/ImageUploader";
 import Positions from "@/components/Positions";
 import Radius from "@/components/Radius";
 
@@ -14,6 +16,8 @@ const RightSide = () => {
       <ElementColors />
       <Radius />
       <Border />
+      <ImageUploader />
+      <ConstructorItemOpacity />
     </div>
   );
 };

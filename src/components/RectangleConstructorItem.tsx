@@ -41,6 +41,7 @@ const RectangleConstructorItem = ({
         onClick={onSelect}
         onTap={onSelect}
         {...constructorItem}
+        opacity={constructorItem.opacity! / 100}
         draggable
         onDragEnd={(e) => {
           onChange(

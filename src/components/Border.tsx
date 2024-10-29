@@ -74,6 +74,7 @@ const Border = () => {
         ...selectedConstructorItem,
         stroke: "transparent",
         strokeWidth: 0,
+        dashEnabled: false,
       };
 
       updateConstructorItems([

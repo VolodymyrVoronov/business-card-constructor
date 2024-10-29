@@ -49,6 +49,7 @@ const Elements = () => {
         strokeWidth: 0,
         dash: [10, 10],
         dashEnabled: false,
+        opacity: 100,
       });
     }
 
@@ -155,6 +156,7 @@ const Elements = () => {
         strokeWidth: 0,
         dash: [10, 10],
         dashEnabled: false,
+        opacity: 100,
       });
     }
   };
