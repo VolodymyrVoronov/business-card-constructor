@@ -127,12 +127,12 @@ const Elements = () => {
       addConstructorItem({
         itemId: generateRandomUUID(),
         type: "circle",
-        x: 0,
-        y: 0,
+        x: 50,
+        y: 50,
         radius: 50,
         isSelected: false,
         zIndex: 0,
-        stroke: "transparent",
+        stroke: "#000000",
         strokeWidth: 0,
         dash: [10, 10],
         dashEnabled: false,
@@ -144,6 +144,7 @@ const Elements = () => {
           x: 0,
           y: 0,
         },
+        fillEnabled: true,
       });
     }
 
@@ -183,6 +184,7 @@ const Elements = () => {
           x: 0,
           y: 0,
         },
+        fillEnabled: true,
       });
     }
   };

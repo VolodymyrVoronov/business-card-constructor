@@ -18,6 +18,8 @@ const Radius = () => {
 
   if (!selectedId && (selectedType === "rect" || selectedType === "image")) {
     return null;
+  } else if (selectedType === "circle") {
+    return null;
   }
 
   const selectedConstructorItem = constructorItems

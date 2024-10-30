@@ -36,7 +36,7 @@ const ColorPicker = ({ icon = "fill" }: IColorPickerProps) => {
   const onColorChange = (color: IColor) => {
     setSelectedColor(color);
 
-    if (selectedId && selectedType === "rect") {
+    if ((selectedId && selectedType === "rect") || selectedType === "circle") {
       setConstructorItemBackgroundColor(color);
     }
   };

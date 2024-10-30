@@ -15,7 +15,12 @@ const ConstructorItemOpacity = () => {
       ]),
     );
 
-  if (!selectedId || (selectedType !== "image" && selectedType !== "rect")) {
+  if (
+    !selectedId ||
+    (selectedType !== "image" &&
+      selectedType !== "rect" &&
+      selectedType !== "circle")
+  ) {
     return null;
   }
 

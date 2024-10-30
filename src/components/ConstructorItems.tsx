@@ -4,6 +4,7 @@ import { useAppStore } from "@/store/app";
 
 import ImageConstructorItem from "./ImageConstructorItem";
 import RectangleConstructorItem from "./RectangleConstructorItem";
+import CircleConstructorItem from "./CircleConstructorItem";
 
 const ConstructorItems = () => {
   const [
@@ -26,6 +27,7 @@ const ConstructorItems = () => {
 
   const reactItems = constructorItems.filter((item) => item.type === "rect");
   const imageItems = constructorItems.filter((item) => item.type === "image");
+  const circleItems = constructorItems.filter((item) => item.type === "circle");
 
   return (
     <>
@@ -74,6 +76,30 @@ const ConstructorItems = () => {
             });
 
             updateConstructorItems(newImages);
+          }}
+        />
+      ))}
+
+      {circleItems.map((circle, i) => (
+        <CircleConstructorItem
+          key={i}
+          constructorItem={circle}
+          isSelected={circle.itemId === selectedId}
+          onSelect={() => {
+            setSelectedId(circle.itemId);
+            setSelectedType("circle");
+          }}
+          onChange={(newAttrs, id) => {
+            const circles = constructorItems.slice();
+
+            const newCircles = circles.map((item) => {
+              if (item.itemId === id) {
+                return newAttrs;
+              }
+              return item;
+            });
+
+            updateConstructorItems(newCircles);
           }}
         />
       ))}
