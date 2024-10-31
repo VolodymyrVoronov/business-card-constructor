@@ -18,7 +18,13 @@ const Border = () => {
       ]),
     );
 
-  if (!selectedId && (selectedType === "rect" || selectedType === "image")) {
+  if (
+    !selectedId &&
+    (selectedType === "rect" ||
+      selectedType === "image" ||
+      selectedType === "circle" ||
+      selectedType === "ellipse")
+  ) {
     return null;
   }
 

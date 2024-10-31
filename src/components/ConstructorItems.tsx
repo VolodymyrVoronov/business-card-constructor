@@ -2,9 +2,10 @@ import { useShallow } from "zustand/react/shallow";
 
 import { useAppStore } from "@/store/app";
 
+import CircleConstructorItem from "./CircleConstructorItem";
+import EllipseConstructorItem from "./EllipseConstructorItem";
 import ImageConstructorItem from "./ImageConstructorItem";
 import RectangleConstructorItem from "./RectangleConstructorItem";
-import CircleConstructorItem from "./CircleConstructorItem";
 
 const ConstructorItems = () => {
   const [
@@ -28,6 +29,9 @@ const ConstructorItems = () => {
   const reactItems = constructorItems.filter((item) => item.type === "rect");
   const imageItems = constructorItems.filter((item) => item.type === "image");
   const circleItems = constructorItems.filter((item) => item.type === "circle");
+  const ellipseItems = constructorItems.filter(
+    (item) => item.type === "ellipse",
+  );
 
   return (
     <>
@@ -100,6 +104,30 @@ const ConstructorItems = () => {
             });
 
             updateConstructorItems(newCircles);
+          }}
+        />
+      ))}
+
+      {ellipseItems.map((ellipse, i) => (
+        <EllipseConstructorItem
+          key={i}
+          constructorItem={ellipse}
+          isSelected={ellipse.itemId === selectedId}
+          onSelect={() => {
+            setSelectedId(ellipse.itemId);
+            setSelectedType("ellipse");
+          }}
+          onChange={(newAttrs, id) => {
+            const ellipses = constructorItems.slice();
+
+            const newEllipses = ellipses.map((item) => {
+              if (item.itemId === id) {
+                return newAttrs;
+              }
+              return item;
+            });
+
+            updateConstructorItems(newEllipses);
           }}
         />
       ))}
