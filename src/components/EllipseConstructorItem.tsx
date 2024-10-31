@@ -93,14 +93,17 @@ const EllipseConstructorItem = ({
               return pos;
             }
             const containerRect = container.getBoundingClientRect();
+            const radiusX = node.radiusX();
+            const radiusY = node.radiusY();
+
             return {
               x: Math.max(
-                0,
-                Math.min(pos.x, containerRect.width - node.width()),
+                radiusX,
+                Math.min(pos.x, containerRect.width - radiusX),
               ),
               y: Math.max(
-                0,
-                Math.min(pos.y, containerRect.height - node.height()),
+                radiusY,
+                Math.min(pos.y, containerRect.height - radiusY),
               ),
             };
           }
