@@ -27,7 +27,7 @@ const Ellipse = ({ className, onClick }: IEllipseProps) => {
         variant="ghost"
         size="icon"
       >
-        <Egg className="size-10 rotate-90" />
+        <Egg className="size-10 rotate-90 dark:text-slate-500" />
       </Button>
     </Hint>
   );

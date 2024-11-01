@@ -27,7 +27,7 @@ const Arc = ({ className, onClick }: IArcProps) => {
         variant="ghost"
         size="icon"
       >
-        <Disc className="size-10" />
+        <Disc className="size-10 dark:text-slate-500" />
       </Button>
     </Hint>
   );

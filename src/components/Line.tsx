@@ -27,7 +27,7 @@ const Line = ({ className, onClick }: ILineProps) => {
         variant="ghost"
         size="icon"
       >
-        <Minus className="size-10" />
+        <Minus className="size-10 dark:text-slate-500" />
       </Button>
     </Hint>
   );

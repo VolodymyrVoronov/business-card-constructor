@@ -27,7 +27,7 @@ const Rectangle = ({ className, onClick }: IRectangleProps) => {
         variant="ghost"
         size="icon"
       >
-        <Square className="size-10" />
+        <Square className="size-10 dark:text-slate-500" />
       </Button>
     </Hint>
   );

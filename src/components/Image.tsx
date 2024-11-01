@@ -27,7 +27,7 @@ const Image = ({ className, onClick }: IImageProps) => {
         variant="ghost"
         size="icon"
       >
-        <ImageIcon className="size-10" />
+        <ImageIcon className="size-10 dark:text-slate-500" />
       </Button>
     </Hint>
   );

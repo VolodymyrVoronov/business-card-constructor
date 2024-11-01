@@ -27,7 +27,7 @@ const Circle = ({ className, onClick }: ICircleProps) => {
         variant="ghost"
         size="icon"
       >
-        <CircleIcon className="size-10" />
+        <CircleIcon className="size-10 dark:text-slate-500" />
       </Button>
     </Hint>
   );

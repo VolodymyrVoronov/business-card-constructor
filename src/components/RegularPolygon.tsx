@@ -27,7 +27,7 @@ const RegularPolygon = ({ className, onClick }: IRegularPolygonProps) => {
         variant="ghost"
         size="icon"
       >
-        <Triangle className="size-10" />
+        <Triangle className="size-10 dark:text-slate-500" />
       </Button>
     </Hint>
   );

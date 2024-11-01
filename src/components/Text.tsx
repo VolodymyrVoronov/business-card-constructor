@@ -27,7 +27,7 @@ const Text = ({ className, onClick }: ITextProps) => {
         variant="ghost"
         size="icon"
       >
-        <CaseSensitive className="size-10" />
+        <CaseSensitive className="size-10 dark:text-slate-500" />
       </Button>
     </Hint>
   );

@@ -27,7 +27,7 @@ const Path = ({ className, onClick }: IPathProps) => {
         variant="ghost"
         size="icon"
       >
-        <Route className="size-10" />
+        <Route className="size-10 dark:text-slate-500" />
       </Button>
     </Hint>
   );

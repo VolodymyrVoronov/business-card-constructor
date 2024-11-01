@@ -27,7 +27,7 @@ const Star = ({ className, onClick }: IStarProps) => {
         variant="ghost"
         size="icon"
       >
-        <StarIcon className="size-10" />
+        <StarIcon className="size-10 dark:text-slate-500" />
       </Button>
     </Hint>
   );
