@@ -93,17 +93,12 @@ const PolygonConstructorItem = ({
               return pos;
             }
             const containerRect = container.getBoundingClientRect();
-            const polygonRadius = node.radius();
+            const offsetX = node.offsetX();
+            const offsetY = node.offsetY();
 
             return {
-              x: Math.max(
-                polygonRadius,
-                Math.min(pos.x, containerRect.width - polygonRadius),
-              ),
-              y: Math.max(
-                polygonRadius,
-                Math.min(pos.y, containerRect.height - polygonRadius),
-              ),
+              x: Math.max(0, Math.min(pos.x, containerRect.width - offsetX)),
+              y: Math.max(0, Math.min(pos.y, containerRect.height - offsetY)),
             };
           }
 

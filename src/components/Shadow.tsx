@@ -25,7 +25,8 @@ const Shadow = () => {
       selectedType !== "rect" &&
       selectedType !== "circle" &&
       selectedType !== "ellipse" &&
-      selectedType !== "regular-polygon")
+      selectedType !== "regular-polygon" &&
+      selectedType !== "arc")
   ) {
     return null;
   }
