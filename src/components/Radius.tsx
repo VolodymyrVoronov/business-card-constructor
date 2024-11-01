@@ -215,7 +215,7 @@ const Radius = () => {
             <Slider
               onValueChange={onAngleChange}
               value={[selectedConstructorItem?.angle || 360]}
-              min={0}
+              min={1}
               max={360}
               step={1}
               className="w-full"
