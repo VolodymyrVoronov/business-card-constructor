@@ -137,8 +137,8 @@ const Elements = () => {
       addConstructorItem({
         itemId: generateRandomUUID(),
         type: "star",
-        x: 0,
-        y: 0,
+        x: 50,
+        y: 50,
         numPoints: 5,
         innerRadius: 30,
         outerRadius: 50,

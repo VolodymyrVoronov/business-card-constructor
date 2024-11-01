@@ -21,7 +21,8 @@ const Radius = () => {
     !selectedId &&
     (selectedType === "rect" ||
       selectedType === "image" ||
-      selectedType === "arc")
+      selectedType === "arc" ||
+      selectedType === "star")
   ) {
     return null;
   } else if (
@@ -170,11 +171,25 @@ const Radius = () => {
     }
   };
 
+  const onNumberOfPointsChange = (value: number[]): void => {
+    if (selectedConstructorItem) {
+      const newItem = {
+        ...selectedConstructorItem,
+        numPoints: value[0],
+      };
+
+      updateConstructorItems([
+        ...constructorItems.filter((item) => item.itemId !== selectedId),
+        newItem,
+      ]);
+    }
+  };
+
   return (
     <div className="flex flex-col gap-y-2 border-b-[1px] border-black p-2 dark:border-slate-500">
       <span className="text-center text-sm font-semibold">Radius</span>
 
-      {selectedType === "arc" ? (
+      {selectedType === "arc" || selectedType === "star" ? (
         <div>
           <div className="grid grid-cols-2 gap-2">
             <div className="">
@@ -184,7 +199,6 @@ const Radius = () => {
                 type="number"
                 disabled={!selectedConstructorItem}
                 min={1}
-                max={100}
                 step={1}
                 value={selectedConstructorItem?.innerRadius ?? 0}
                 onChange={onInnerRadiusChange}
@@ -198,7 +212,6 @@ const Radius = () => {
                 type="number"
                 disabled={!selectedConstructorItem}
                 min={1}
-                max={100}
                 step={1}
                 value={selectedConstructorItem?.outerRadius ?? 0}
                 onChange={onOuterRadiusChange}
@@ -206,21 +219,40 @@ const Radius = () => {
             </div>
           </div>
 
-          <div className="mb-2 mt-5 flex w-full flex-col items-center gap-2">
-            <small>
-              Angle {selectedConstructorItem?.angle}
-              <sup>o</sup>
-            </small>
+          {selectedType === "star" ? (
+            <>
+              <div className="mb-2 mt-5 flex w-full flex-col items-center gap-2">
+                <small>Points {selectedConstructorItem?.numPoints}</small>
 
-            <Slider
-              onValueChange={onAngleChange}
-              value={[selectedConstructorItem?.angle || 360]}
-              min={1}
-              max={360}
-              step={1}
-              className="w-full"
-            />
-          </div>
+                <Slider
+                  onValueChange={onNumberOfPointsChange}
+                  value={[selectedConstructorItem?.numPoints || 5]}
+                  min={2}
+                  max={25}
+                  step={1}
+                  className="w-full"
+                />
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="mb-2 mt-5 flex w-full flex-col items-center gap-2">
+                <small>
+                  Angle {selectedConstructorItem?.angle}
+                  <sup>o</sup>
+                </small>
+
+                <Slider
+                  onValueChange={onAngleChange}
+                  value={[selectedConstructorItem?.angle || 360]}
+                  min={1}
+                  max={360}
+                  step={1}
+                  className="w-full"
+                />
+              </div>
+            </>
+          )}
         </div>
       ) : (
         <div className="grid grid-cols-3 grid-rows-3">

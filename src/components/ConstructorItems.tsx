@@ -8,6 +8,7 @@ import ImageConstructorItem from "./ImageConstructorItem";
 import PolygonConstructorItem from "./PolygonConstructorItem";
 import RectangleConstructorItem from "./RectangleConstructorItem";
 import ArcConstructorItem from "./ArcConstructorItem";
+import StarConstructorItem from "./StarConstructorItem";
 
 const ConstructorItems = () => {
   const [
@@ -38,6 +39,7 @@ const ConstructorItems = () => {
     (item) => item.type === "regular-polygon",
   );
   const arcItems = constructorItems.filter((item) => item.type === "arc");
+  const starItems = constructorItems.filter((item) => item.type === "star");
 
   return (
     <>
@@ -182,6 +184,30 @@ const ConstructorItems = () => {
             });
 
             updateConstructorItems(newArcs);
+          }}
+        />
+      ))}
+
+      {starItems.map((star, i) => (
+        <StarConstructorItem
+          key={i}
+          constructorItem={star}
+          isSelected={star.itemId === selectedId}
+          onSelect={() => {
+            setSelectedId(star.itemId);
+            setSelectedType("star");
+          }}
+          onChange={(newAttrs, id) => {
+            const stars = constructorItems.slice();
+
+            const newStars = stars.map((item) => {
+              if (item.itemId === id) {
+                return newAttrs;
+              }
+              return item;
+            });
+
+            updateConstructorItems(newStars);
           }}
         />
       ))}

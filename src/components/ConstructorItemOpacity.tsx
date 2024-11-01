@@ -21,7 +21,9 @@ const ConstructorItemOpacity = () => {
       selectedType === "rect" ||
       selectedType === "circle" ||
       selectedType === "ellipse" ||
-      selectedType === "regular-polygon")
+      selectedType === "regular-polygon" ||
+      selectedType === "arc" ||
+      selectedType === "star")
   ) {
     return null;
   }
