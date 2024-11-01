@@ -16,7 +16,12 @@ const Radius = () => {
       ]),
     );
 
-  if (!selectedId && (selectedType === "rect" || selectedType === "image")) {
+  if (
+    !selectedId &&
+    (selectedType === "rect" ||
+      selectedType === "image" ||
+      selectedType === "arc")
+  ) {
     return null;
   } else if (
     selectedType === "circle" ||
@@ -122,81 +127,141 @@ const Radius = () => {
     }
   };
 
+  const onInnerRadiusChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    if (selectedConstructorItem) {
+      const newItem = {
+        ...selectedConstructorItem,
+        innerRadius: parseInt(e.target.value),
+      };
+
+      updateConstructorItems([
+        ...constructorItems.filter((item) => item.itemId !== selectedId),
+        newItem,
+      ]);
+    }
+  };
+
+  const onOuterRadiusChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    if (selectedConstructorItem) {
+      const newItem = {
+        ...selectedConstructorItem,
+        outerRadius: parseInt(e.target.value),
+      };
+
+      updateConstructorItems([
+        ...constructorItems.filter((item) => item.itemId !== selectedId),
+        newItem,
+      ]);
+    }
+  };
+
   return (
     <div className="flex flex-col gap-y-2 border-b-[1px] border-black p-2 dark:border-slate-500">
       <span className="text-center text-sm font-semibold">Radius</span>
 
-      <div className="grid grid-cols-3 grid-rows-3">
-        <div className="">
-          <small>Top left</small>
-          <Input
-            className="h-6"
-            type="number"
-            disabled={!selectedConstructorItem}
-            min={0}
-            max={100}
-            step={1}
-            value={selectedConstructorItem?.cornerRadius[0] ?? 0}
-            onChange={onTopLeftRadiusChange}
-          />
-        </div>
+      {selectedType === "arc" ? (
+        <div className="grid grid-cols-3 grid-rows-2 gap-2">
+          <div className="">
+            <small>Inner</small>
+            <Input
+              className="h-6"
+              type="number"
+              disabled={!selectedConstructorItem}
+              min={1}
+              max={100}
+              step={1}
+              value={selectedConstructorItem?.innerRadius ?? 0}
+              onChange={onInnerRadiusChange}
+            />
+          </div>
 
-        <div className="col-start-3">
-          <small>Top right</small>
-          <Input
-            className="h-6"
-            type="number"
-            disabled={!selectedConstructorItem}
-            min={0}
-            max={100}
-            step={1}
-            value={selectedConstructorItem?.cornerRadius[1] ?? 0}
-            onChange={onTopRightRadiusChange}
-          />
+          <div className="row-start-2">
+            <small>Outer</small>
+            <Input
+              className="h-6"
+              type="number"
+              disabled={!selectedConstructorItem}
+              min={1}
+              max={100}
+              step={1}
+              value={selectedConstructorItem?.outerRadius ?? 0}
+              onChange={onOuterRadiusChange}
+            />
+          </div>
         </div>
+      ) : (
+        <div className="grid grid-cols-3 grid-rows-3">
+          <div className="">
+            <small>Top left</small>
+            <Input
+              className="h-6"
+              type="number"
+              disabled={!selectedConstructorItem}
+              min={0}
+              max={100}
+              step={1}
+              value={selectedConstructorItem?.cornerRadius[0] ?? 0}
+              onChange={onTopLeftRadiusChange}
+            />
+          </div>
 
-        <div className="row-start-3">
-          <small>Bottom left</small>
-          <Input
-            className="h-6"
-            type="number"
-            disabled={!selectedConstructorItem}
-            min={0}
-            max={100}
-            step={1}
-            value={selectedConstructorItem?.cornerRadius[3] ?? 0}
-            onChange={onBottomRightRadiusChange}
-          />
-        </div>
+          <div className="col-start-3">
+            <small>Top right</small>
+            <Input
+              className="h-6"
+              type="number"
+              disabled={!selectedConstructorItem}
+              min={0}
+              max={100}
+              step={1}
+              value={selectedConstructorItem?.cornerRadius[1] ?? 0}
+              onChange={onTopRightRadiusChange}
+            />
+          </div>
 
-        <div className="col-start-3 row-start-3">
-          <small>Bottom right</small>
-          <Input
-            className="h-6"
-            type="number"
-            disabled={!selectedConstructorItem}
-            min={0}
-            max={100}
-            step={1}
-            value={selectedConstructorItem?.cornerRadius[2] ?? 0}
-            onChange={onBottomLeftRadiusChange}
-          />
-        </div>
+          <div className="row-start-3">
+            <small>Bottom left</small>
+            <Input
+              className="h-6"
+              type="number"
+              disabled={!selectedConstructorItem}
+              min={0}
+              max={100}
+              step={1}
+              value={selectedConstructorItem?.cornerRadius[3] ?? 0}
+              onChange={onBottomRightRadiusChange}
+            />
+          </div>
 
-        <div className="col-start-2 row-start-2">
-          <small>Full radius</small>
-          <Input
-            className="h-6"
-            type="number"
-            disabled={!selectedConstructorItem}
-            min={0}
-            max={100}
-            step={1}
-            value={selectedConstructorItem?.cornerRadius ?? 0}
-            onChange={onFullRadiusChange}
-          />
+          <div className="col-start-3 row-start-3">
+            <small>Bottom right</small>
+            <Input
+              className="h-6"
+              type="number"
+              disabled={!selectedConstructorItem}
+              min={0}
+              max={100}
+              step={1}
+              value={selectedConstructorItem?.cornerRadius[2] ?? 0}
+              onChange={onBottomLeftRadiusChange}
+            />
+          </div>
+
+          <div className="col-start-2 row-start-2">
+            <small>Full radius</small>
+            <Input
+              className="h-6"
+              type="number"
+              disabled={!selectedConstructorItem}
+              min={0}
+              max={100}
+              step={1}
+              value={selectedConstructorItem?.cornerRadius ?? 0}
+              onChange={onFullRadiusChange}
+            />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

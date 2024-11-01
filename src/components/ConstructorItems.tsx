@@ -7,6 +7,7 @@ import EllipseConstructorItem from "./EllipseConstructorItem";
 import ImageConstructorItem from "./ImageConstructorItem";
 import PolygonConstructorItem from "./PolygonConstructorItem";
 import RectangleConstructorItem from "./RectangleConstructorItem";
+import ArcConstructorItem from "./ArcConstructorItem";
 
 const ConstructorItems = () => {
   const [
@@ -36,6 +37,7 @@ const ConstructorItems = () => {
   const polygonItems = constructorItems.filter(
     (item) => item.type === "regular-polygon",
   );
+  const arcItems = constructorItems.filter((item) => item.type === "arc");
 
   return (
     <>
@@ -156,6 +158,30 @@ const ConstructorItems = () => {
             });
 
             updateConstructorItems(newPolygons);
+          }}
+        />
+      ))}
+
+      {arcItems.map((arc, i) => (
+        <ArcConstructorItem
+          key={i}
+          constructorItem={arc}
+          isSelected={arc.itemId === selectedId}
+          onSelect={() => {
+            setSelectedId(arc.itemId);
+            setSelectedType("arc");
+          }}
+          onChange={(newAttrs, id) => {
+            const arcs = constructorItems.slice();
+
+            const newArcs = arcs.map((item) => {
+              if (item.itemId === id) {
+                return newAttrs;
+              }
+              return item;
+            });
+
+            updateConstructorItems(newArcs);
           }}
         />
       ))}
