@@ -7,6 +7,7 @@ import ImageUploader from "@/components/ImageUploader";
 import Positions from "@/components/Positions";
 import Radius from "@/components/Radius";
 import Shadow from "@/components/Shadow";
+import Sides from "@/components/Sides";
 
 const RightSide = () => {
   return (
@@ -20,6 +21,7 @@ const RightSide = () => {
       <ImageUploader />
       <ConstructorItemOpacity />
       <Shadow />
+      <Sides />
     </div>
   );
 };

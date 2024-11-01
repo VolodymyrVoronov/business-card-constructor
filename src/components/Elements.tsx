@@ -78,7 +78,6 @@ const Elements = () => {
         type: "regular-polygon",
         sides: 3,
         radius: 50,
-
         x: 50,
         y: 50,
         isSelected: false,
