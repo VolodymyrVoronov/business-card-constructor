@@ -23,7 +23,8 @@ const Border = () => {
     (selectedType === "rect" ||
       selectedType === "image" ||
       selectedType === "circle" ||
-      selectedType === "ellipse")
+      selectedType === "ellipse" ||
+      selectedType === "regular-polygon")
   ) {
     return null;
   }

@@ -18,7 +18,11 @@ const Radius = () => {
 
   if (!selectedId && (selectedType === "rect" || selectedType === "image")) {
     return null;
-  } else if (selectedType === "circle" || selectedType === "ellipse") {
+  } else if (
+    selectedType === "circle" ||
+    selectedType === "ellipse" ||
+    selectedType === "regular-polygon"
+  ) {
     return null;
   }
 

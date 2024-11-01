@@ -23,7 +23,9 @@ const Shadow = () => {
     !selectedId ||
     (selectedType !== "image" &&
       selectedType !== "rect" &&
-      selectedType !== "circle")
+      selectedType !== "circle" &&
+      selectedType !== "ellipse" &&
+      selectedType !== "regular-polygon")
   ) {
     return null;
   }

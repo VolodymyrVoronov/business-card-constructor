@@ -5,6 +5,7 @@ import { useAppStore } from "@/store/app";
 import CircleConstructorItem from "./CircleConstructorItem";
 import EllipseConstructorItem from "./EllipseConstructorItem";
 import ImageConstructorItem from "./ImageConstructorItem";
+import PolygonConstructorItem from "./PolygonConstructorItem";
 import RectangleConstructorItem from "./RectangleConstructorItem";
 
 const ConstructorItems = () => {
@@ -31,6 +32,9 @@ const ConstructorItems = () => {
   const circleItems = constructorItems.filter((item) => item.type === "circle");
   const ellipseItems = constructorItems.filter(
     (item) => item.type === "ellipse",
+  );
+  const polygonItems = constructorItems.filter(
+    (item) => item.type === "regular-polygon",
   );
 
   return (
@@ -128,6 +132,30 @@ const ConstructorItems = () => {
             });
 
             updateConstructorItems(newEllipses);
+          }}
+        />
+      ))}
+
+      {polygonItems.map((polygon, i) => (
+        <PolygonConstructorItem
+          key={i}
+          constructorItem={polygon}
+          isSelected={polygon.itemId === selectedId}
+          onSelect={() => {
+            setSelectedId(polygon.itemId);
+            setSelectedType("regular-polygon");
+          }}
+          onChange={(newAttrs, id) => {
+            const polygons = constructorItems.slice();
+
+            const newPolygons = polygons.map((item) => {
+              if (item.itemId === id) {
+                return newAttrs;
+              }
+              return item;
+            });
+
+            updateConstructorItems(newPolygons);
           }}
         />
       ))}
