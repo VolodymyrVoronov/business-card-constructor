@@ -120,8 +120,6 @@ const Elements = () => {
           x: 0,
           y: 0,
         },
-        lineCap: "round",
-        lineJoin: "round",
       });
     }
 
