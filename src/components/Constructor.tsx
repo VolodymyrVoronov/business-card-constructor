@@ -9,6 +9,7 @@ import { useAppStore } from "@/store/app";
 import { GradientDirection } from "@/types";
 
 import ConstructorItems from "./ConstructorItems";
+import { Button } from "./ui/button";
 
 const Constructor = () => {
   const [
@@ -76,8 +77,26 @@ const Constructor = () => {
     ],
   );
 
+  const exportAsPNG = () => {
+    if (!canvasRef.current) {
+      return;
+    }
+
+    const dataURL = canvasRef.current.toDataURL();
+    const link = document.createElement("a");
+    link.href = dataURL;
+    link.download = "business_card.png";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
-    <div className="mt-[2rem] flex items-start justify-center align-top">
+    <div className="mt-2 flex flex-col items-center justify-start gap-2 align-top">
+      <Button onClick={exportAsPNG} size="sm">
+        Export as PNG
+      </Button>
+
       <Stage
         ref={canvasRef}
         width={dimension.width}
