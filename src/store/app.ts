@@ -1,4 +1,4 @@
-// import { temporal } from "zundo";
+import { temporal } from "zundo";
 import { produce } from "immer";
 import { type IColor } from "react-color-palette";
 import { create } from "zustand";
@@ -44,6 +44,7 @@ export interface IAppActions {
 export const useAppStore = create(
   persist(
     devtools(
+      temporal(
       immer<IAppStore & IAppActions>((set, get) => ({
         selectedColor: {
           hex: "#000000",
@@ -175,8 +176,8 @@ export const useAppStore = create(
             });
           });
         },
-      })),
-      // { limit: 50 },
+      }))),
+      { limit: 50 },
     ),
     {
       name: "business-card-constructor-storage",

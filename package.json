@@ -42,6 +42,7 @@
     "tailwindcss-animate": "^1.0.7",
     "use-image": "^1.1.1",
     "vaul": "^1.0.0",
+    "zundo": "^2.2.0",
     "zustand": "^5.0.0-rc.2"
   },
   "devDependencies": {

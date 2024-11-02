@@ -1,7 +1,7 @@
 import { Redo, Undo } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// import { useAppStore } from "@/store/app";
+import { useAppStore } from "@/store/app";
 
 import { Button } from "./ui/button";
 
@@ -10,20 +10,20 @@ interface IRedoUndoButtonsProps {
 }
 
 const RedoUndoButtons = ({ className }: IRedoUndoButtonsProps): JSX.Element => {
-  // const { undo, redo } = useAppStore.temporal.getState();
+  const { undo, redo } = useAppStore.temporal.getState();
 
-  // const onUndoButtonClick = (): void => {
-  //   undo();
-  // };
+  const onUndoButtonClick = (): void => {
+    undo();
+  };
 
-  // const onRedoButtonClick = (): void => {
-  //   redo();
-  // };
+  const onRedoButtonClick = (): void => {
+    redo();
+  };
 
   return (
     <div className={cn("flex items-center justify-center gap-2", className)}>
       <Button
-        // onPress={onUndoButtonClick}
+        onClick={onUndoButtonClick}
         type="button"
         size="icon"
         aria-label="Undo"
@@ -34,7 +34,7 @@ const RedoUndoButtons = ({ className }: IRedoUndoButtonsProps): JSX.Element => {
       </Button>
 
       <Button
-        // onPress={onRedoButtonClick}
+        onClick={onRedoButtonClick}
         type="button"
         size="icon"
         aria-label="Redo"
