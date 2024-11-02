@@ -10,7 +10,6 @@ import Arc from "./Arc";
 import Circle from "./Circle";
 import Ellipse from "./Ellipse";
 import Image from "./Image";
-import Line from "./Line";
 import Path from "./Path";
 import Rectangle from "./Rectangle";
 import RegularPolygon from "./RegularPolygon";
@@ -138,16 +137,6 @@ const Elements = () => {
       });
     }
 
-    if (type === "line") {
-      addConstructorItem({
-        itemId: generateRandomUUID(),
-        type: "line",
-        points: [20, 0, 200, 0],
-        isSelected: false,
-        zIndex: 0,
-      });
-    }
-
     if (type === "star") {
       addConstructorItem({
         itemId: generateRandomUUID(),
@@ -263,7 +252,6 @@ const Elements = () => {
         <Star onClick={onElementButtonClick} />
         <Image onClick={onElementButtonClick} />
         <Path onClick={onElementButtonClick} />
-        <Line onClick={onElementButtonClick} />
       </div>
     </div>
   );

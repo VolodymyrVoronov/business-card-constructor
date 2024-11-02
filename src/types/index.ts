@@ -2,7 +2,6 @@ import { ArcConfig } from "konva/lib/shapes/Arc";
 import { CircleConfig } from "konva/lib/shapes/Circle";
 import { EllipseConfig } from "konva/lib/shapes/Ellipse";
 import { ImageConfig } from "konva/lib/shapes/Image";
-import { LineConfig } from "konva/lib/shapes/Line";
 import { PathConfig } from "konva/lib/shapes/Path";
 import { RectConfig } from "konva/lib/shapes/Rect";
 import { RegularPolygonConfig } from "konva/lib/shapes/RegularPolygon";
@@ -37,8 +36,7 @@ export type ConstructorItemType =
   | "regular-polygon"
   | "star"
   | "arc"
-  | "svg-path"
-  | "line";
+  | "svg-path";
 
 export interface ConstructorItemText extends ConstructorItemBase, TextConfig {
   type: "text";
@@ -84,10 +82,6 @@ export interface ConstructorItemSVGPath
   type: "svg-path";
 }
 
-export interface ConstructorItemLine extends ConstructorItemBase, LineConfig {
-  type: "line";
-}
-
 export type ConstructorItem =
   | ConstructorItemText
   | ConstructorItemImage
@@ -97,8 +91,7 @@ export type ConstructorItem =
   | ConstructorItemRegularPolygon
   | ConstructorItemStar
   | ConstructorItemArc
-  | ConstructorItemSVGPath
-  | ConstructorItemLine;
+  | ConstructorItemSVGPath;
 
 type To = "to";
 type Direction = "top" | "right" | "bottom" | "left";
