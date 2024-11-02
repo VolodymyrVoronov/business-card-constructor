@@ -92,8 +92,3 @@ export type ConstructorItem =
   | ConstructorItemStar
   | ConstructorItemArc
   | ConstructorItemSVGPath;
-
-type To = "to";
-type Direction = "top" | "right" | "bottom" | "left";
-
-export type GradientDirection = `${To} ${Direction}`;

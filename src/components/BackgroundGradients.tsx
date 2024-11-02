@@ -5,7 +5,6 @@ import { GRADIENTS } from "@/constants";
 import { cn } from "@/lib/utils";
 import { useAppStore } from "@/store/app";
 
-import BackgroundGradientDirection from "./BackgroundGradientDirection";
 import { ScrollArea } from "./ui/scroll-area";
 
 const BackgroundGradients = () => {
@@ -20,8 +19,6 @@ const BackgroundGradients = () => {
   return (
     <Fragment>
       <span className="text-center text-sm font-semibold">Gradients</span>
-
-      <BackgroundGradientDirection />
 
       <ScrollArea className="h-[120px] w-auto" type="auto">
         <div className="flex flex-row flex-wrap gap-2 py-1">

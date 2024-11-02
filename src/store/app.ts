@@ -5,11 +5,7 @@ import { create } from "zustand";
 import { createJSONStorage, devtools, persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 
-import {
-  ConstructorItem,
-  ConstructorItemType,
-  GradientDirection,
-} from "@/types";
+import { ConstructorItem, ConstructorItemType } from "@/types";
 
 export interface IAppStore {
   selectedColor: IColor;
@@ -22,7 +18,6 @@ export interface IAppStore {
   canvasBackgroundColor: string | undefined;
   canvasBackgroundColorOpacity: number;
   canvasGradient: [string, string] | undefined;
-  canvasGradientDirection: GradientDirection;
   canvasBackgroundImage: string | undefined;
   constructorItems: ConstructorItem[];
 }
@@ -37,9 +32,7 @@ export interface IAppActions {
     canvasBackgroundColorOpacity: number,
   ) => void;
   setCanvasGradient: (canvasGradient: [string, string] | undefined) => void;
-  setCanvasGradientDirection: (
-    canvasGradientDirection: GradientDirection,
-  ) => void;
+
   setCanvasBackgroundImage: (canvasBackgroundImage: string | undefined) => void;
   clearCanvasBackground: () => void;
   addConstructorItem: (item: ConstructorItem) => void;
@@ -116,12 +109,6 @@ export const useAppStore = create(
           set((state) => {
             state.canvasGradient = canvasGradient;
             state.canvasBackgroundColor = undefined;
-          });
-        },
-
-        setCanvasGradientDirection: (canvasGradientDirection) => {
-          set((state) => {
-            state.canvasGradientDirection = canvasGradientDirection;
           });
         },
 
