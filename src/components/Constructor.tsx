@@ -73,6 +73,8 @@ const Constructor = () => {
       }
     : undefined;
 
+  const isBackground = fillColor || fillGradient;
+
   return (
     <div className="mt-2 flex flex-col items-center justify-start gap-2 align-top">
       <Button onClick={exportAsPNG} size="sm">
@@ -88,15 +90,17 @@ const Constructor = () => {
         className="border-[1px] border-dotted border-black dark:border-slate-500"
       >
         <Layer>
-          <Rect
-            x={0}
-            y={0}
-            width={dimension.width}
-            height={dimension.height}
-            fill={fillColor}
-            {...fillGradient}
-            zIndex={-1}
-          />
+          {isBackground && (
+            <Rect
+              x={0}
+              y={0}
+              width={dimension.width}
+              height={dimension.height}
+              fill={fillColor}
+              {...fillGradient}
+              zIndex={-1}
+            />
+          )}
 
           <ConstructorItems />
         </Layer>
