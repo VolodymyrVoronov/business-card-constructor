@@ -9,6 +9,7 @@ import PolygonConstructorItem from "./PolygonConstructorItem";
 import RectangleConstructorItem from "./RectangleConstructorItem";
 import ArcConstructorItem from "./ArcConstructorItem";
 import StarConstructorItem from "./StarConstructorItem";
+import SvgPathConstructorItem from "./SvgPathConstructorItem";
 
 const ConstructorItems = () => {
   const [
@@ -40,6 +41,9 @@ const ConstructorItems = () => {
   );
   const arcItems = constructorItems.filter((item) => item.type === "arc");
   const starItems = constructorItems.filter((item) => item.type === "star");
+  const svgPathItems = constructorItems.filter(
+    (item) => item.type === "svg-path",
+  );
 
   return (
     <>
@@ -208,6 +212,30 @@ const ConstructorItems = () => {
             });
 
             updateConstructorItems(newStars);
+          }}
+        />
+      ))}
+
+      {svgPathItems.map((svgPath, i) => (
+        <SvgPathConstructorItem
+          key={i}
+          constructorItem={svgPath}
+          isSelected={svgPath.itemId === selectedId}
+          onSelect={() => {
+            setSelectedId(svgPath.itemId);
+            setSelectedType("svg-path");
+          }}
+          onChange={(newAttrs, id) => {
+            const svgPaths = constructorItems.slice();
+
+            const newSvgPaths = svgPaths.map((item) => {
+              if (item.itemId === id) {
+                return newAttrs;
+              }
+              return item;
+            });
+
+            updateConstructorItems(newSvgPaths);
           }}
         />
       ))}

@@ -64,11 +64,26 @@ const Elements = () => {
       addConstructorItem({
         itemId: generateRandomUUID(),
         type: "svg-path",
-        path: "",
-        x: 0,
-        y: 0,
+        data: "M 10,30A 20,20 0,0,1 50,30A 20,20 0,0,1 90,30Q 90,60 50,90Q 10,60 10,30 z",
+        width: undefined,
+        height: undefined,
+        x: 50,
+        y: 50,
         isSelected: false,
         zIndex: 0,
+        fill: "#000000",
+        stroke: "transparent",
+        strokeWidth: 0,
+        dash: [10, 10],
+        dashEnabled: false,
+        opacity: 100,
+        visible: true,
+        shadowColor: "transparent",
+        shadowBlur: 0,
+        shadowOffset: {
+          x: 0,
+          y: 0,
+        },
       });
     }
 

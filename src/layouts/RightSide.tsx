@@ -8,6 +8,7 @@ import Positions from "@/components/Positions";
 import Radius from "@/components/Radius";
 import Shadow from "@/components/Shadow";
 import Sides from "@/components/Sides";
+import SVGPath from "@/components/SVGPath";
 
 const RightSide = () => {
   return (
@@ -22,6 +23,7 @@ const RightSide = () => {
       <ConstructorItemOpacity />
       <Shadow />
       <Sides />
+      <SVGPath />
     </div>
   );
 };

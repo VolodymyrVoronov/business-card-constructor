@@ -1,15 +1,13 @@
-import { CSSProperties } from "react";
-
-import { ImageConfig } from "konva/lib/shapes/Image";
-import { TextConfig } from "konva/lib/shapes/Text";
+import { ArcConfig } from "konva/lib/shapes/Arc";
 import { CircleConfig } from "konva/lib/shapes/Circle";
-import { RectConfig } from "konva/lib/shapes/Rect";
 import { EllipseConfig } from "konva/lib/shapes/Ellipse";
+import { ImageConfig } from "konva/lib/shapes/Image";
+import { LineConfig } from "konva/lib/shapes/Line";
+import { PathConfig } from "konva/lib/shapes/Path";
+import { RectConfig } from "konva/lib/shapes/Rect";
 import { RegularPolygonConfig } from "konva/lib/shapes/RegularPolygon";
 import { StarConfig } from "konva/lib/shapes/Star";
-import { ArcConfig } from "konva/lib/shapes/Arc";
-import { PathConfig } from "konva/lib/shapes/Path";
-import { LineConfig } from "konva/lib/shapes/Line";
+import { TextConfig } from "konva/lib/shapes/Text";
 
 export type Theme = "light" | "dark" | "system";
 

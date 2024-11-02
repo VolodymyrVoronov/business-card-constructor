@@ -28,7 +28,8 @@ const Radius = () => {
   } else if (
     selectedType === "circle" ||
     selectedType === "ellipse" ||
-    selectedType === "regular-polygon"
+    selectedType === "regular-polygon" ||
+    selectedType === "svg-path"
   ) {
     return null;
   }

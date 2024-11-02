@@ -43,7 +43,8 @@ const ColorPicker = ({ icon = "fill" }: IColorPickerProps) => {
         selectedType === "ellipse" ||
         selectedType === "regular-polygon" ||
         selectedType === "arc" ||
-        selectedType === "star")
+        selectedType === "star" ||
+        selectedType === "svg-path")
     ) {
       setConstructorItemBackgroundColor(color);
     }
